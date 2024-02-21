@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portifolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <script src ="menu.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav id = "header-movimento">
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Hi, I'm</p>
+                <h1>Otávio</h1>
+                <p2>Junior <span>BackEnd Developer</span></p2>
+            </div>
+        </div>
+    </header>
+    <!-- -----------about---------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About me</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis, elementum molestie tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris eleifend magna id ante convallis mattis. Quisque in sem tristique, dictum sapien et, accumsan libero.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Certified</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('social')">Contact</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web app Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021 - Current</span><br>UI/UX Design Training at ET Institute</li>
+                            <li><span>2019 - 2021</span><br>Team lead at StarApp LLC.</li>
+                            <li><span>2017 - 2019</span><br>UI/UX Design Executive at Coin Digital Ltd.</li>
+                            <li><span>2016 - 2017</span><br>Internship at ekart eCommerce.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="social">
+                        <ul>
+                            <div class = "social_media">
+                                <a href="https://wa.me/5531973448484" target="_blank" title="Instagram">
+
+                                    <div class="balloon">
+                                        <span class="name">WhatsApp</span>
+                                    </div>
+                        
+                                    <img src="images/whatsapp-icon.png" />
+                        
+                                </a>
+                        
+                                <a class="twitter" href="https://www.linkedin.com/in/otavio-mendes-852b85174/" target="_blank" title="Twitter">
+                        
+                                    <div class="balloon">
+                                        <span class="name">LinkedIn</span>
+                                    </div>
+
+                                    <img src="images/linkedin-icon.png" />
+
+                        
+                                    
+                        
+                                </a>
+                        
+                        
+                                <a class="tiktok" href="https://github.com/OtavioMendes12" target="_blank" title="Tiktok">
+                        
+                                    <div class="balloon">
+                                        <span class="name">Github</span>
+                                    </div>
+                        
+                                    <img src="images/github-icon.png" />
+
+                                </a>
+                                
+                            </div>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---------services---------------- -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Skills</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fas fa-crop-alt"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fab fa-app-store"></i>
+                    <h2>App Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------portfolio------------ -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/work-1.png">
+                    <div class="layer">
+                        <h3>Social Media App</h3>
+                        <p>The app connects you yo the talented people around the world. Download it from play store.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-2.png">
+                    <div class="layer">
+                        <h3>Music App</h3>
+                        <p>The app connects you yo the talented people around the world. Download it from play store.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-3.png">
+                    <div class="layer">
+                        <h3>Online Shopping App</h3>
+                        <p>The app connects you yo the talented people around the world. Download it from play store.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">Go to top</a>
+        </div>
+    </div>
+    <!-- ----------contact------------- -->
+
+    <div class="copyright">
+        <p>Copyright © 2023 by Otávio Mendes. All rights reserved.</p>
+    </div>
+
+
+
+
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+    </script>
+
+    <script>
+
+        var sidemeu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
+
+    </script>
+    
+
+</body>
+</html>
