@@ -11,7 +11,9 @@
     <script src ="menu.js"></script>
 </head>
 <body>
+    
     <header id="header">
+        
         <div class="container">
             <nav id = "header-movimento">
                 <img src="images/logo.png" class="logo">
@@ -25,7 +27,7 @@
                 <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>Hi, I'm</p>
+                <span>Hello World &#x1F44B, I'm</span>
                 <h1>Otávio</h1>
                 <p2>Junior <span>BackEnd Developer</span></p2>
             </div>
@@ -43,23 +45,16 @@
                     <p>Simply passionate about developing new ideas through codes.</p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Certified</p>
-                        <p class="tab-links" onclick="opentab('education')">Experience with Development</p>
+                        <p class="tab-links" onclick="opentab('education')">Experience</p>
                         <p class="tab-links" onclick="opentab('social')">Contact</p>
                     </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
-                            <li><span>Web Development</span><br>Web app Development</li>
-                            <li><span>App Development</span><br>Building Android/iOS apps</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
+                    <div class="tab-contents active-tab" id="education">
                         <ul>
                             <li><span>Currently</span><br> Graduating in Software Engineering</li>
                             <li><span>2 years</span><br>Working as a freelancer with programming</li>
                             <li><span>1 year</span><br>Doing an internship in RPA python development </li>
                             <li><span>Currently</span><br>Studying Microsoft Azure AI Fundamentals</li>
+
                             
                         </ul>
                     </div>
@@ -112,26 +107,92 @@
     <!-- ---------services---------------- -->
     <div id="services">
         <div class="container">
-            <p>What I am Good In</p>
             <h1 class="sub-title">My <span>Skills</span></h1>
             <div class="services-list">
                 <div>
-                    <i class="fas fa-code"></i>
-                    <h2>Web Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-                    <a href="#">Learn more</a>
+                    <i class="Java-Skill"></i>
+                    
+                    <p>
+                        <img id = 'icon' src='images/javaicon.png' width="100" height="100" alt=""  />
+                    </p>
+                    <h2>Java</h2>
+                    
                 </div>
                 <div>
-                    <i class="fas fa-crop-alt"></i>
-                    <h2>UI/UX Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-                    <a href="#">Learn more</a>
+                    <i class="Python-Skill"></i>
+                    
+                    <p>
+                        <img id = 'icon' src='images/pythonicon.png' width="100" height="100" alt=""  />
+                    </p>
+                    <h2>Python</h2>
+                    
                 </div>
                 <div>
-                    <i class="fab fa-app-store"></i>
-                    <h2>App Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-                    <a href="#">Learn more</a>
+                    <i class="SQL-Skill"></i>
+                    
+                    <p>
+                        <img id = 'icon' src='images/sqlicon.png' width="100" height="100" alt=""  />
+                    </p>
+                    <h2>SQL Server</h2>
+                    
+                </div>
+                <div>
+                    <i class="Docker-Skill"></i>
+                    
+                    <p>
+                        <img id = 'icon'  src='images/dockericon.png' width="100" height="100" alt=""  />
+                    </p>
+                    <h2>Docker</h2>
+                    
+                </div>
+                <div>
+                    <i class="Agile-skill"></i>
+                    <p >
+                        <img id = 'icon'  src='images/agileicon.png' width="100" height="100" alt="">
+                    </p>
+                    <h2>Agile Frameworks</h2>
+                    
+                    
+                </div>
+                <div>
+                    <i class="Data-skill"></i>
+                    <p>
+                        <img id = 'icon' src='images/dadosicon.png' width="100" height="100" alt="" />
+                    </p>
+                    <h2>Data Analytics</h2>
+                    
+                </div>
+                <div>
+                    <i class="AWS-skill"></i>
+                    <p>
+                        <img id = 'icon' src='images/awsicon.png' width="100" height="100" alt="" />
+                    </p>
+                    <h2>Amazon Web <br>Services</h2>
+                    
+                </div>
+                <div>
+                    <i class="RPA-skill"></i>
+                    <p>
+                        <img id = 'icon' src='images/RPA.png' width="100" height="100" alt="" />
+                    </p>
+                    <h2>Robotic Process <br>Automation</h2>
+                    
+                </div>
+                <div>
+                    <i class="NodeJs-Skills"></i>
+                    <p>
+                        <img id = 'icon' src='images/node js.png' width="100" height="100" alt="" />
+                    </p>
+                    <h2>NodeJs</h2>
+                    
+                </div>
+                <div>
+                    <i class="SpringBoot-Skills"></i>
+                    <p>
+                        <img id = 'icon' src='images/Spring boot.png' width="100" height="100" alt="" />
+                    </p>
+                    <h2>Spring Boot</h2>
+                    
                 </div>
             </div>
         </div>
@@ -172,7 +233,7 @@
     <!-- ----------contact------------- -->
 
     <div class="copyright">
-        <p>Copyright © 2023 by Otávio Mendes. All rights reserved.</p>
+        <p>Copyright © 2024 by Otávio Mendes. All rights reserved.</p>
     </div>
 
 
@@ -208,6 +269,8 @@
         }
 
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     
 
 </body>
