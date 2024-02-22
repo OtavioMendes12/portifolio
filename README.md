@@ -1,6 +1,6 @@
 # Otávio Mendes - BackEnd Developer Portfolio
 
-Welcome to my professional web developer portfolio, a showcase of my skills and experiences in the realm of web development. This project is a reflection of my journey and abilities in coding, particularly with HTML, CSS, and Node.js.
+Welcome to my professional BackEnd Developer Portfolio, a showcase of my skills and experiences in the realm of web development. This project is a reflection of my journey and abilities in coding, particularly with HTML, CSS, and Node.js.
 
 ## About the Project
 
