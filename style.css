@@ -105,7 +105,7 @@ nav ul li a:hover::after{
     font-family: "Secular One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: linear-gradient(45deg, #fff, #65A0FE,#4078FF,#6AD2F5 );
+    background: linear-gradient(45deg, #bac4e4, #698fcd,#0b40ba,#6AD2F5 );
     background-size: 400% 100%;
     animation: degradetexto 10s linear infinite alternate;
     -webkit-background-clip: text;
@@ -113,6 +113,15 @@ nav ul li a:hover::after{
 
 }
 
+
+@keyframes word {
+    from{
+        filter: blur(0);
+    }
+    to{
+        filter: blur(25);
+    }
+}
 @keyframes degradetexto {
     0%{
         background-position-x:0% ;
