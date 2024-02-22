@@ -6,13 +6,7 @@
     box-sizing: border-box;
     
 }
-html.click, html.click a,html.click p, html.click a:hover, a:hover,html.click p:hover, p:hover{
-    cursor:url('images/cursorclick.png'), auto;
-    }
-html{
-    scroll-behavior: smooth;
-    cursor:url('images/cursor.png'), auto;
-}
+
 body{
     background: #202020;
     color: #fff;
@@ -595,3 +589,4 @@ nav .fas{
 
 
 /* Barra de Rolagem */
+
