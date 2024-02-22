@@ -20,25 +20,20 @@ Simply passionate about developing new ideas through codes.
 
 - **HTML & CSS:** Proficient in building structured, efficient, and visually appealing web layouts.
 - **JavaScript & Node.js:** Experienced in both client-side and server-side JavaScript, enhancing web applications' interactivity and functionality.
-- **Java Spring Boot:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
-- **Python:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
-- **RPA:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
-- **Docker:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
-- **SQL Server:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
-- **Amazon Web Services:** [Briefly mention any other relevant skills or technologies you're proficient in, such as databases, frameworks, version control, etc.]
+- **Java Spring Boot:** Building stand-alone, production-grade Spring based applications with minimal configuration.
+- **Python:**  Its simplicity and extensive libraries, making it a popular choice for artificial intelligence and machine learning development.
+- **RPA:** RPA (Robotic Process Automation) in Python involves automating repetitive and mundane tasks using Python scripts and libraries, thereby enhancing efficiency and reducing human error.
+- **Docker:** Docker with Python involves containerizing Python applications for consistent, efficient deployment and scaling across different environments, ensuring isolation and dependency management.
+- **SQL Server:**  System developed by Microsoft, known for its high performance, security, and scalability in storing and retrieving data for various applications.
+- **Amazon Web Services:** Cloud computing platform provided by Amazon, offering scalable services such as computing power, storage, and databases, supporting a wide range of applications and workloads.
 
 ## Experience
-
-[Detail your professional experience. Include job titles, companies you've worked for, duration, and a brief description of your roles and responsibilities.]
-
 - **RPA Developer** at **Bluetape** (1 year)
   - Doing an internship in RPA python development.
 - **Freelancer** (2 years)
   - Working as a freelancer with programming.
 
 ## Education
-
-[List your educational background, focusing on relevant degrees or courses in web development or computer science.]
 
 - **Software Engineering** from **PUC Minas - BH** (2022 - Currently)
 - **Microsoft Azure AI Fundamentals** from **DIO** (2023 - Currently)
