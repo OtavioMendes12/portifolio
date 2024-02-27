@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="imagex/png" href="images/Texto_do_seu_parágrafo__2_-removebg-preview.ico">
     <script src ="menu.js"></script>
 </head>
 <body>
     
     <header id="header">
+        
         
         <div class="container">
             <nav id = "header-movimento">
@@ -30,6 +32,7 @@
                 <span>Hello World &#x1F44B, I'm</span>
                 <h1>Otávio</h1>
                 <p2>Junior <span>BackEnd Developer</span></p2>
+                <a href="" id="microsoft"><br><img src="images/microsofticon.png"  width ='25px' height="25px"> 1x Microsoft Azure Certified</a>
             </div>
         </div>
     </header>
@@ -47,6 +50,7 @@
                     <div class="tab-titles">
                         <p class="tab-links" onclick="opentab('education')">Experience</p>
                         <p class="tab-links" onclick="opentab('social')">Contact</p>
+                        <p class="tab-links" onclick="opentab('experience')">Certificate</p>
                     </div>
                     <div class="tab-contents active-tab" id="education">
                         <ul>
@@ -54,8 +58,12 @@
                             <li><span>2 years</span><br>Working as a freelancer with programming</li>
                             <li><span>1 year</span><br>Doing an internship in RPA python development </li>
                             <li><span>Currently</span><br>Studying Microsoft Azure AI Fundamentals</li>
-
-                            
+                
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <a class="linkcertfied"  href="https://cert.efset.org/Wx6pvb" target="_blank" ><br>Advanced level C1 English certificate</a><a  href="https://cert.efset.org/Wx6pvb">  <img src="images/cursormaoclick.png" width ='20px' height="20px"></a>
                         </ul>
                     </div>
                     <div class="tab-contents" id="social">
@@ -200,7 +208,7 @@
     <!-- ----------portfolio------------ -->
     <div id="portfolio">
         <div class="container">
-            <h1 class="sub-title">My Work</h1>
+            <h1 class="sub-title">My Projects</h1>
             <div class="work-list">
                 <div class="work">
                     <img src="images/codigofundo.jpg">
@@ -221,7 +229,7 @@
                 <div class="work">
                     <img src="images/arquiteturaHexagonal.jpg">
                     <div class="layer">
-                        <h3>ArchitectureHexa TESTEETETETE - Python</h3>
+                        <h3>ArchitectureHexa - Python</h3>
                         <p>This code is an order management system that allows you to create, process and list orders, using a hexagonal architecture to separate business logic from data persistence.</p>
                         <a href="https://github.com/OtavioMendes12/Arquitetura-Hexagonal" target="_blank"><i class="fas fa-external-link-alt"></i></a>
                     </div>

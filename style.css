@@ -6,6 +6,9 @@
     box-sizing: border-box;
     
 }
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     background: #202020;
@@ -62,6 +65,19 @@ nav{
     margin-left: -8%;
 }
 
+#microsoft{
+    margin-top: 10cm;
+    font-size: 30px;
+    font-family: 'League Spartan';
+    text-decoration: none;
+    color: #F4F4F4;
+}
+#microsoft:hover {
+    padding-left: 30px;
+    color: #34B3F7;
+    transition: .4s;
+  }
+
 nav ul li{
     display: inline-block;
     list-style: none;
@@ -101,7 +117,7 @@ nav ul li a:hover::after{
 }
 .header-text h1{
     font-size: 80px;
-    margin-top: 20px;
+    margin-top: 0px;
     font-family: "Secular One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -156,9 +172,7 @@ nav ul li a:hover::after{
     
     font-family: 'League Spartan';
     font-size: 50px;
-    background-color: #34B3F7;
-    border-radius:20px ;
-    padding: 10px;
+    color: #34B3F7 ;
     
 }
 
@@ -301,10 +315,11 @@ nav ul li a:hover::after{
     font-weight: 500;
     cursor: pointer;
     position: relative;
+    color: #fff;
 }
 .tab-links::after{
     content: '';
-    width: 0;
+    width: 0%;
     height: 3px;
     background: #34B3F7;
     position: absolute;
@@ -313,8 +328,48 @@ nav ul li a:hover::after{
     transition: 0.5s;
 }
 
+.linkcertfied {
+    text-decoration: none;
+    font-family: 'League Spartan';
+    color: cornflowerblue;
+    border-left: 4px;
+  }
+  
+.linkcertfied:hover {
+    padding-left: 30px;
+    color: #34B3F7;
+    transition: .4s;
+  }
+
 .tab-links.active-link::after{
     width: 50%;
+}
+
+.fcc-btn {
+    
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+  }
+  
+  .fcc-btn:hover {
+    background-color: #223094;
+  }
+
+
+.tab-contents ul a{
+    list-style: none;
+    margin: 10px 0;
+    color: #ABABAB;
+    text-decoration: none;
+
+}
+.tab-contents ul a span{
+    color: #34B3F7;
+    font-size: 14px;
+    list-style: none;
+    margin: 10px 0;
+    
 }
 
 .tab-contents ul li{
@@ -581,6 +636,7 @@ nav .fas{
 /* Fundo que corre */
 ::-webkit-scrollbar-track {
     background-color: #232C3B;
+    
 }
 /* Fundo que corre */
 
