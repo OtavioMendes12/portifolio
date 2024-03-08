@@ -318,6 +318,7 @@ nav ul li a:hover::after{
     position: relative;
     color: #fff;
 }
+
 .tab-links::after{
     content: '';
     width: 0%;
@@ -656,3 +657,52 @@ nav .fas{
 
 /* Barra de Rolagem */
 
+@media screen and (max-width: 768px){
+    #header{
+       display:block ;
+       background-image: none;
+       height: 60vh;
+       
+    }
+    .about-col-2 p{
+        font-size: 20px;
+    }
+    .header-text{
+        margin-top: 60%;
+    }
+
+    
+    
+    .copyright{
+        background: none;
+
+    }
+    #about{
+
+        padding: 50px 0;
+    }
+    .header-text span{
+        font-size: 30px;
+
+    }
+    .header-text h1{
+        font-size: 60px;
+
+    }
+    .header-text p2{
+        font-size: 30px;
+
+    }
+    .header-text p2 span{
+        font-size: 30px;
+
+    }
+    .social_media{
+        height: 0vh;
+    }
+
+    .about-col-2{
+        width: 0px;
+    }
+
+}
