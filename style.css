@@ -481,17 +481,21 @@ nav ul li a:hover::after{
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
+    
 }
 .work{
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    
+    
 }
 .work img{
     width: 100%;
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
+    
 }
 .layer{
     width: 100%;
@@ -506,24 +510,29 @@ nav ul li a:hover::after{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 20px;
     text-align: center;
-    font-size: 14px;
+    font-size: 5px;
    transition: height 0.5s;
+   
+}
+
+.layer p{
+    font-size: 20px;
 }
 .layer h3{
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-weight: 300;
+    margin-bottom: 10px;
 }
 .layer a{
     margin-top: 20px;
     color: #34B3F7;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 60px;
     background: #fff;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     text-align: center;
 }
@@ -716,6 +725,10 @@ nav .fas{
         
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* This will create columns with equal widths */
        
+    }
+
+    .work{
+        width: 35vh;
     }
 
 }
