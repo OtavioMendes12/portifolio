@@ -415,7 +415,7 @@ nav ul li a:hover::after{
 }
 .services-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* This will create columns with equal widths */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* This will create columns with equal widths */
     grid-gap: 40px;
     margin-top: 50px;
     align-items: start; /* Changed from center to start to align the items to the top */
@@ -710,7 +710,12 @@ nav .fas{
     }
 
     .copyright p {
-        font-size:15px;
+        font-size: 30px;
+    }
+    .services-list {
+        
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* This will create columns with equal widths */
+       
     }
 
 }
