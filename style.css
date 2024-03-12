@@ -670,6 +670,7 @@ nav .fas{
 @media screen and (max-width: 768px){
     #header{
        display:flex ;
+       background-color: none;
        
        height: 100vh;
        
