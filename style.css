@@ -61,6 +61,7 @@ nav{
     flex-wrap: wrap;
 }
 
+
 .logo{
     width: 250px;
     margin-left: -8%;
@@ -513,7 +514,7 @@ nav ul li a:hover::after{
     padding: 0 20px;
     text-align: center;
     font-size: 5px;
-   transition: height 0.5s;
+    transition: height 0.5s;
    
 }
 
@@ -668,11 +669,16 @@ nav .fas{
 
 @media screen and (max-width: 768px){
     #header{
-       display:block ;
-       background-color: #2A2A2A;
-       background-image: none;
-       height: 60vh;
+       display:flex ;
        
+       height: 100vh;
+       
+    }
+    .sub-title{
+        place-items: center;
+    }
+    .logo{
+        margin-left: 25px;
     }
     .about-col-2 p{
         font-size: 20px;
@@ -692,11 +698,11 @@ nav .fas{
         padding: 50px 0;
     }
     .header-text span{
-        font-size: 30px;
+        font-size: 35px;
 
     }
     .header-text h1{
-        font-size: 60px;
+        font-size: 90px;
 
     }
     .header-text p2{
@@ -729,6 +735,30 @@ nav .fas{
 
     .work{
         width: 35vh;
+    }
+    .header-text{
+        display: grid;
+        place-items: center;
+        height: 20vh;
+        margin-top: 300px;
+        padding-left: 15px;
+        font-weight: 100px;
+        
+    }
+    #header-movimento{
+        background-color: #2A2A2A;
+        border-bottom: 1px solid #C6C4BF;
+    }
+    
+    
+
+    #header-movimento a{
+        padding-left: 75px;
+        color: #34B3F7;
+        font-family: 'League Spartan';
+        font-size: 35px;
+
+        
     }
 
 }
