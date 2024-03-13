@@ -667,7 +667,7 @@ nav .fas{
 
 /* Barra de Rolagem */
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 768px){
     #header{
        display:flex ;
        
