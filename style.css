@@ -667,12 +667,14 @@ nav .fas{
 
 /* Barra de Rolagem */
 
-@media screen and (max-width: 768px){
+@media only screen and (max-width: 1000px){
     #header{
        display:flex ;
-       background-color: none;
        
-       height: 100vh;
+       background-image: url(images/backgroundcelular.png);
+       background-size: 800px 1000px;
+       background-repeat: no-repeat;
+       height: 120vh;
        
     }
     .sub-title{
@@ -707,11 +709,11 @@ nav .fas{
 
     }
     .header-text p2{
-        font-size: 30px;
+        font-size: 25px;
 
     }
     .header-text p2 span{
-        font-size: 30px;
+        font-size: 25px;
 
     }
     .social_media{
