@@ -4,11 +4,18 @@
   padding-bottom: var(--space-3);
 }
 
+/* pescador | nome | escudo 3D (só no tema galo) */
 .brand {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas: 'logo text crest';
   align-items: center;
   gap: var(--space-4);
 }
+
+.brand-logo { grid-area: logo; }
+.brand-text { grid-area: text; }
+.brand-crest { grid-area: crest; justify-self: start; line-height: 0; }
 
 .brand-logo {
   color: var(--accent);
@@ -99,9 +106,11 @@
 }
 
 @media (max-width: 900px) {
+  /* celular: os dois ícones lado a lado em cima, o nome embaixo */
   .brand {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'logo crest' 'text text';
+    align-items: end;
     gap: var(--space-3);
   }
 }

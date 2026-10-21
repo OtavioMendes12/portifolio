@@ -35,14 +35,15 @@ function Brand() {
   return (
     <div className="brand">
       <div className="brand-logo">
-        {theme === 'galo' ? (
+        <OtavioLogo title={t('header.logoAlt')} />
+      </div>
+      {theme === 'galo' && (
+        <div className="brand-crest">
           <Suspense fallback={<span className="crest-placeholder" aria-hidden="true" />}>
             <Crest3D label={t('header.shieldAlt')} />
           </Suspense>
-        ) : (
-          <OtavioLogo title={t('header.logoAlt')} />
-        )}
-      </div>
+        </div>
+      )}
       <div className="brand-text">
         <h1 className="banner-wrap">
           <pre className="banner" aria-hidden="true">{BANNER}</pre>

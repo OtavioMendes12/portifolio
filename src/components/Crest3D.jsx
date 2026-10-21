@@ -2,12 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { loadCrestGeometry, createCrestScene } from '../lib/crest3d';
 import { useReducedMotion } from '../lib/useReducedMotion';
 import { useTheme } from '../theme/themeContext';
-import OtavioLogo from './OtavioLogo';
 
 const W = 112;
 const H = 128;
 
-/** Escudo 3D balançando devagar; arraste para girar. Sem WebGL, cai na logo. */
+/** Escudo 3D balançando devagar; arraste para girar. Sem WebGL, some (o pescador já está ao lado). */
 export default function Crest3D({ label }) {
   const canvasRef = useRef(null);
   const reduced = useReducedMotion();
@@ -77,6 +76,6 @@ export default function Crest3D({ label }) {
     };
   }, [reduced, theme]);
 
-  if (failed) return <OtavioLogo title={label} />;
+  if (failed) return null;
   return <canvas ref={canvasRef} className="crest-3d" width={W} height={H} role="img" aria-label={label} data-keep-focus />;
 }
