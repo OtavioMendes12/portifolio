@@ -17,7 +17,7 @@ const galoWallpaperPlugin = () => ({
   transformIndexHtml(html) {
     const file = ['webp', 'jpg', 'jpeg', 'png'].map((ext) => `galo/wallpaper.${ext}`).find((f) => existsSync(`public/${f}`));
     if (!file) return html;
-    return html.replace('</head>', `    <style>[data-theme='galo']{--page-wallpaper:url('/${file}')}</style>\n  </head>`);
+    return html.replace('</head>', `    <style>html[data-theme='galo']{--page-wallpaper:url('/${file}')}</style>\n  </head>`);
   },
 });
 
