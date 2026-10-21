@@ -31,11 +31,26 @@ function sanitize(raw) {
 }
 
 const errorCode = (err) => {
-  if (err instanceof OpenAI.AuthenticationError) return 'not_configured';
-  if (err instanceof OpenAI.RateLimitError) return 'busy';
-  if (err instanceof OpenAI.APIError) return 'upstream';
+  const code = err?.code ?? err?.error?.code;
+  if (code === 'model_not_found') return 'model_unavailable';
+  if (['insufficient_quota', 'credit_balance_exhausted', 'organization_spend_limit_exceeded',
+    'project_spend_limit_exceeded', 'organization_usage_limit_exceeded', 'usage_limit_exceeded'].includes(code)
+    || err?.type === 'insufficient_quota') return 'quota';
+  if (err instanceof OpenAI.AuthenticationError || err?.status === 401) return 'not_configured';
+  if (err instanceof OpenAI.PermissionDeniedError || err?.status === 403) return 'access_denied';
+  if (err instanceof OpenAI.RateLimitError || code === 'rate_limit_exceeded') return 'busy';
   return 'upstream';
 };
+
+// Somente metadados: nunca registrar chave, histórico ou headers da requisição.
+const logError = (err) => console.error('[ask]', {
+  model: MODEL,
+  status: err?.status,
+  code: err?.code,
+  type: err?.type,
+  param: err?.param,
+  requestId: err?.request_id,
+});
 
 export async function POST(request) {
   const blocked = guard(request);
@@ -101,7 +116,9 @@ export async function POST(request) {
             terminal = true;
             break;
           } else if (event.type === 'response.failed' || event.type === 'error') {
-            send({ t: 'error', code: 'upstream' });
+            const error = event.response?.error ?? event;
+            logError(error);
+            send({ t: 'error', code: errorCode(error) });
             terminal = true;
             break;
           }
@@ -109,7 +126,7 @@ export async function POST(request) {
         if (!terminal && !cancelled) send({ t: 'error', code: 'upstream' });
       } catch (err) {
         if (!cancelled && !request.signal.aborted) {
-          console.error('[ask]', { status: err.status, code: err.code, name: err.name });
+          logError(err);
           send({ t: 'error', code: errorCode(err) });
         }
       } finally {
