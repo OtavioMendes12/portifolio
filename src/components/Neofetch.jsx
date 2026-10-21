@@ -38,7 +38,7 @@ function useArt(theme, logoRef) {
     const source =
       theme === 'galo'
         ? import('../lib/crest3d')
-            .then((m) => m.crestSnapshot())
+            .then((m) => (m.supportsWebGL() ? m.crestSnapshot() : Promise.reject(new Error('no webgl'))))
             .then((url) => imageToBraille(url, { cols: 20, rows: 11, minLuma: 0.5 }))
             .catch(fromLogo)
         : fromLogo();

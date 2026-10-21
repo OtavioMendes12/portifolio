@@ -46,7 +46,13 @@ export const commands = [
     name: 'habilidades',
     aliases: ['skills', 'stack'],
     component: lazy(() => import('./components/Skills.jsx')),
-    flags: [{ name: 'lista', aliases: ['list'] }, { name: 'cards' }, { name: 'globo', aliases: ['globe'] }],
+    flags: [
+      { name: 'lista', aliases: ['list'] },
+      { name: 'cards' },
+      { name: 'globo', aliases: ['globe'] },
+      { name: 'terminal' },
+      { name: 'info', value: true },
+    ],
   },
   {
     name: 'curriculo',

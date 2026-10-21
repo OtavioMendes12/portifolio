@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { loadCrestGeometry, createCrestScene } from '../lib/crest3d';
+import { loadCrestGeometry, createCrestScene, supportsWebGL } from '../lib/crest3d';
 import { useReducedMotion } from '../lib/useReducedMotion';
 import { useTheme } from '../theme/themeContext';
 
@@ -50,7 +50,7 @@ export default function Crest3D({ label }) {
       if (visible && scene && !raf && !reduced) raf = requestAnimationFrame(frame);
     });
 
-    loadCrestGeometry()
+    (supportsWebGL() ? loadCrestGeometry() : Promise.reject(new Error('no webgl')))
       .then((geometry) => {
         if (!alive) return;
         const rim = getComputedStyle(canvas).getPropertyValue('--accent').trim() || undefined;

@@ -40,6 +40,16 @@ export function loadCrestGeometry() {
   return geometryPromise;
 }
 
+/** O navegador consegue WebGL? (checado antes, para não poluir o console com erros do three.js) */
+export const supportsWebGL = () => {
+  try {
+    const c = document.createElement('canvas');
+    return Boolean(c.getContext('webgl2') || c.getContext('webgl'));
+  } catch {
+    return false;
+  }
+};
+
 /** Monta renderer + cena num canvas. rim = cor da luz de contorno (o --accent do tema). */
 export function createCrestScene(canvas, geometry, { rim = '#ffd503', width, height, preserve = false } = {}) {
   const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true, preserveDrawingBuffer: preserve });

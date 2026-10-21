@@ -99,6 +99,7 @@
 /* ---------- claro ---------- */
 [data-theme='claro'] {
   color-scheme: light;
+  --skill-mono: var(--accent); /* ícones de habilidades na cor do tema */
   --bg-page: #cfcfcf;
   --bg-terminal: #dddddd;
   --surface: #f2f2f2;
@@ -126,6 +127,7 @@
 /* ---------- matrix ---------- */
 [data-theme='matrix'] {
   color-scheme: dark;
+  --skill-mono: var(--accent);
   --bg-page: #000000;
   --bg-terminal: #000000;
   --surface: #061a08;

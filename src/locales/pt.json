@@ -84,7 +84,7 @@
       "desc": "Projetos com stack e links · filtre com --tag java"
     },
     "habilidades": {
-      "desc": "Habilidades · --lista, --cards ou --globo"
+      "desc": "Habilidades · --lista, --cards, --globo, --terminal ou --info java"
     },
     "curriculo": {
       "desc": "Abre o currículo em PDF para ler ou baixar"
@@ -181,10 +181,23 @@
   },
   "habilidades": {
     "title": "Habilidades",
-    "modes": "Modos:",
+    "modes": "Estilos:",
     "level": "nível {{level}} de 5",
     "globeLabel": "Nuvem de habilidades: {{list}}",
-    "globeHint": "arraste para girar"
+    "globeHint": "arraste para girar · clique numa habilidade para saber mais",
+    "levels": {
+      "advanced": "Avançado",
+      "intermediate": "Intermediário",
+      "basic": "Básico"
+    },
+    "levelPct": "domínio de {{pct}}%",
+    "clickHint": "clique numa habilidade para saber mais",
+    "usedAt": "Onde usei",
+    "inProjects": "Em projetos",
+    "noJobs": "Sem registro nas experiências listadas.",
+    "noProjects": "Nenhum projeto listado com essa tecnologia.",
+    "askMore": "Quer detalhes?",
+    "notFound": "Não encontrei a habilidade \"{{name}}\"."
   },
   "curriculo": {
     "download": "baixar PDF",

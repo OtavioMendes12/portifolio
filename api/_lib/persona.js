@@ -30,7 +30,7 @@ export function buildSystemPrompt() {
     .join('\n');
 
   const skills = skillGroups
-    .map((g) => `- ${g.title.pt}: ${g.items.map((s) => `${s.name} (${s.level}/5)`).join(', ')}`)
+    .map((g) => `- ${g.title.pt}: ${g.items.map((s) => `${s.name} (${s.level}%)`).join(', ')}`)
     .join('\n');
 
   const trophies = titulos.map((t) => `${t.name.pt} (${t.count ?? t.years.length}×)`).join(', ');
@@ -66,7 +66,7 @@ ${xp}
 ## Projetos
 ${proj}
 
-## Habilidades (nível 1 a 5)
+## Habilidades (domínio em %)
 ${skills}
 
 ## O Galo

@@ -84,7 +84,7 @@
       "desc": "Projects with stack and links · filter with --tag java"
     },
     "habilidades": {
-      "desc": "Skills · --list, --cards or --globe"
+      "desc": "Skills · --list, --cards, --globe, --terminal or --info java"
     },
     "curriculo": {
       "desc": "Opens my resume as a PDF to read or download"
@@ -181,10 +181,23 @@
   },
   "habilidades": {
     "title": "Skills",
-    "modes": "Modes:",
+    "modes": "Styles:",
     "level": "level {{level}} of 5",
     "globeLabel": "Skills cloud: {{list}}",
-    "globeHint": "drag to rotate"
+    "globeHint": "drag to rotate · click a skill to learn more",
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "basic": "Basic"
+    },
+    "levelPct": "{{pct}}% proficiency",
+    "clickHint": "click a skill to learn more",
+    "usedAt": "Where I used it",
+    "inProjects": "In projects",
+    "noJobs": "Not listed in my work experience.",
+    "noProjects": "No listed project uses it.",
+    "askMore": "Want details?",
+    "notFound": "I couldn't find the skill \"{{name}}\"."
   },
   "curriculo": {
     "download": "download PDF",
