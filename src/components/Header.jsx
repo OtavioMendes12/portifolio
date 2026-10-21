@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { TypeAnimation } from 'react-type-animation';
 import {
@@ -12,6 +12,9 @@ import OtavioLogo from './OtavioLogo';
 import CmdLink from './CmdLink';
 import StatusLines from './StatusLines';
 import './Header.css';
+
+// three.js só é baixado no tema galo
+const Crest3D = lazy(() => import('./Crest3D.jsx'));
 
 const BANNER = [
   ' ██████╗ ████████╗ █████╗ ██╗   ██╗██╗ ██████╗ ',
@@ -27,14 +30,15 @@ function Brand() {
   const { theme } = useTheme();
   const { lang } = useLang();
   const reduced = useReducedMotion();
-  const [shieldFailed, setShieldFailed] = useState(false);
   const typing = t('header.typing', { returnObjects: true });
 
   return (
     <div className="brand">
       <div className="brand-logo">
-        {theme === 'galo' && !shieldFailed ? (
-          <img src="/galo/escudo.svg" alt={t('header.shieldAlt')} width="96" height="116" onError={() => setShieldFailed(true)} />
+        {theme === 'galo' ? (
+          <Suspense fallback={<span className="crest-placeholder" aria-hidden="true" />}>
+            <Crest3D label={t('header.shieldAlt')} />
+          </Suspense>
         ) : (
           <OtavioLogo title={t('header.logoAlt')} />
         )}

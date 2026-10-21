@@ -28,13 +28,20 @@ function useUptime() {
   return now;
 }
 
-/** Arte em braille: escudo (tema galo, do arquivo fornecido) ou a logo. */
+/** Arte em braille: escudo 3D (tema galo) ou a logo. */
 function useArt(theme, logoRef) {
   const [art, setArt] = useState('');
   useEffect(() => {
     let alive = true;
     const fromLogo = () => imageToBraille(svgElementToDataUrl(logoRef.current.querySelector('svg')), { cols: 20, rows: 10 });
-    const source = theme === 'galo' ? imageToBraille('/galo/escudo.svg', { cols: 20, rows: 11 }).catch(fromLogo) : fromLogo();
+    // tema galo: foto de frente do escudo 3D → braille; senão, a logo
+    const source =
+      theme === 'galo'
+        ? import('../lib/crest3d')
+            .then((m) => m.crestSnapshot())
+            .then((url) => imageToBraille(url, { cols: 20, rows: 11, minLuma: 0.5 }))
+            .catch(fromLogo)
+        : fromLogo();
     source.then((a) => alive && setArt(a)).catch(() => alive && setArt(''));
     return () => {
       alive = false;

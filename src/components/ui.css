@@ -212,3 +212,4 @@
   pointer-events: none;
   z-index: 50;
 }
+.status-dot--muted { background: var(--text-dim); }

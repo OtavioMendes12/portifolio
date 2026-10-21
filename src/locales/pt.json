@@ -14,7 +14,8 @@
     "loading": "carregando…",
     "copy": "copiar",
     "copied": "copiado!",
-    "notConfigured": "integração não configurada"
+    "notConfigured": "integração não configurada",
+    "notConfiguredHint": "Configure {{env}} para ativar."
   },
   "themes": {
     "galo": "Galo",
@@ -101,6 +102,18 @@
     },
     "campeonato": {
       "desc": "Próximos jogos do Galo · --todos ou --tabela"
+    },
+    "github": {
+      "desc": "Meus repositórios: estrelas, linguagem e última atualização"
+    },
+    "stats": {
+      "desc": "Contribuições, linguagens e totais do GitHub · --repos ou --tudo"
+    },
+    "wakatime": {
+      "desc": "Tempo de código da semana · --agora ou --cards"
+    },
+    "spotify": {
+      "desc": "O que estou ouvindo agora + as últimas 10 (via Last.fm)"
     }
   },
   "help": {
@@ -216,7 +229,14 @@
   },
   "status": {
     "nextMatch": "Próximo jogo do Galo",
-    "live": "Galo AO VIVO"
+    "live": "Galo AO VIVO",
+    "coding": "Codando agora",
+    "session": "sessão de {{min}} min",
+    "listening": "Ouvindo agora",
+    "lastListened": "Ouvi por último",
+    "visits_one": "{{count}} visita",
+    "visits_other": "{{count}} visitas",
+    "weather": "{{temp}}°C, {{sky}} em Belo Horizonte"
   },
   "campeonato": {
     "loading": "buscando os jogos do Galo…",
@@ -279,5 +299,51 @@
     "vamoWhat": "vamo o quê? Tenta: vamo galo",
     "vamoGalo": "GAAALOOOO! ★ ★ ★",
     "exit": "Não há saída. Uma vez Galo, sempre Galo."
+  },
+  "github": {
+    "loading": "consultando o GitHub…",
+    "title": "Repositórios de @{{user}} ({{count}})",
+    "stars": "estrelas",
+    "forks": "forks",
+    "more": "Todos em"
+  },
+  "stats": {
+    "title": "GitHub nos últimos 12 meses",
+    "contributions": "contribuições",
+    "commits": "commits",
+    "prs": "pull requests",
+    "repos": "repositórios",
+    "stars": "estrelas",
+    "followers": "seguidores",
+    "languages": "Linguagens mais usadas (por volume de código)",
+    "topRepos": "Repositórios em destaque",
+    "heatmapLabel": "Gráfico de contribuições: {{total}} no último ano",
+    "cellTooltip": "{{count}} contribuições em {{date}}",
+    "less": "menos",
+    "more": "mais",
+    "modes": "Mais:"
+  },
+  "wakatime": {
+    "loading": "consultando o WakaTime…",
+    "title": "Tempo de código nos últimos 7 dias",
+    "titleNow": "Agora no editor",
+    "total": "total na semana",
+    "average": "média por dia",
+    "languagesCount": "linguagens",
+    "languages": "Por linguagem",
+    "projects": "Por projeto",
+    "updating": "O WakaTime ainda está recalculando a semana; os números podem mudar.",
+    "codingNow": "Codando agora",
+    "session": "sessão de {{min}} min",
+    "today": "Hoje: {{time}}",
+    "offline": "Offline no momento",
+    "lastSeen": "visto {{when}}",
+    "modes": "Modos:"
+  },
+  "spotify": {
+    "loading": "consultando o Last.fm…",
+    "nowPlaying": "tocando agora",
+    "silence": "Nada tocando agora.",
+    "recent": "Últimas reproduções"
   }
 }

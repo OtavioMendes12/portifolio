@@ -1,0 +1,125 @@
+.barlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(6em, 12em) 1fr auto;
+  gap: var(--space-1) var(--space-2);
+  max-width: 640px;
+}
+
+/* subgrid: todas as linhas dividem as mesmas colunas, então os trilhos têm a mesma largura */
+.barlist-row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+}
+
+.barlist-label {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.barlist-track {
+  height: 0.7em;
+  min-width: 3em;
+}
+
+.barlist-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 0 var(--radius-1) var(--radius-1) 0;
+}
+
+.barlist-value {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.heatmap {
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.heatmap-scroll {
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 11px);
+  grid-auto-flow: column;
+  grid-auto-columns: 11px;
+  gap: 2px;
+  width: max-content;
+}
+
+.heatmap-cell {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+/* escala sequencial de uma cor só: superfície → accent */
+.lvl-0 { background: var(--surface-2); }
+.lvl-1 { background: color-mix(in srgb, var(--accent) 28%, var(--surface)); }
+.lvl-2 { background: color-mix(in srgb, var(--accent) 50%, var(--surface)); }
+.lvl-3 { background: color-mix(in srgb, var(--accent) 75%, var(--surface)); }
+.lvl-4 { background: var(--accent); }
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-dim);
+  font-size: var(--fs-xs);
+}
+
+.heatmap-legend > span:first-child { margin-right: var(--space-1); }
+.heatmap-legend > span:last-child { margin-left: var(--space-1); }
+
+.stat-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+  gap: var(--space-2);
+}
+
+.stat-tiles li {
+  display: grid;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.stat-value {
+  color: var(--accent);
+  font-size: 1.6em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 480px) {
+  .barlist {
+    grid-template-columns: 1fr auto;
+  }
+  .barlist-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

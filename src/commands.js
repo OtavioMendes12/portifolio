@@ -59,6 +59,28 @@ export const commands = [
     component: lazy(() => import('./components/Contact.jsx')),
   },
   {
+    name: 'github',
+    aliases: ['git', 'repos'],
+    component: lazy(() => import('./components/GitHub.jsx')),
+  },
+  {
+    name: 'stats',
+    aliases: ['ghstats'],
+    component: lazy(() => import('./components/Stats.jsx')),
+    flags: [{ name: 'repos' }, { name: 'tudo', aliases: ['all'] }],
+  },
+  {
+    name: 'wakatime',
+    aliases: ['time', 'waka'],
+    component: lazy(() => import('./components/WakaTime.jsx')),
+    flags: [{ name: 'agora', aliases: ['now'] }, { name: 'cards' }],
+  },
+  {
+    name: 'spotify',
+    aliases: ['music', 'musica', 'lastfm'],
+    component: lazy(() => import('./components/Spotify.jsx')),
+  },
+  {
     name: 'titulos',
     aliases: ['trophies', 'titles'],
     component: lazy(() => import('./components/Titles.jsx')),

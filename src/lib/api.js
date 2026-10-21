@@ -9,7 +9,8 @@ export async function getApi(path, { ttl = 0, signal } = {}) {
   }
   const res = await fetch(path, { signal, headers: { Accept: 'application/json' } });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
+  // 'not_configured' vem com 200: é um estado esperado, não uma falha (e não suja o console)
+  if (!res.ok || data.error === 'not_configured') {
     const err = new Error(data.error ?? `HTTP ${res.status}`);
     err.status = res.status;
     err.code = data.error;

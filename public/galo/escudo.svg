@@ -1,9 +1,0 @@
-<!--
-  PLACEHOLDER. Substitua este arquivo pelo escudo oficial do Clube Atlético Mineiro (escudo.svg).
-  Este desenho é só um contorno genérico de escudo para o layout não quebrar.
--->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" role="img" aria-label="Espaço reservado para o escudo">
-  <path d="M10 8h80v52c0 28-20 44-40 54C30 104 10 88 10 60z" fill="none" stroke="#FFD503" stroke-width="4" stroke-dasharray="8 6"/>
-  <text x="50" y="58" text-anchor="middle" font-family="monospace" font-size="11" fill="#FFD503">escudo</text>
-  <text x="50" y="72" text-anchor="middle" font-family="monospace" font-size="9" fill="#b5b5b5">.svg</text>
-</svg>

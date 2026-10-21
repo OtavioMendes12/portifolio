@@ -14,7 +14,8 @@
     "loading": "loading…",
     "copy": "copy",
     "copied": "copied!",
-    "notConfigured": "integration not configured"
+    "notConfigured": "integration not configured",
+    "notConfiguredHint": "Set {{env}} to enable it."
   },
   "themes": {
     "galo": "Galo",
@@ -101,6 +102,18 @@
     },
     "campeonato": {
       "desc": "Atlético's next matches · --all or --table"
+    },
+    "github": {
+      "desc": "My repositories: stars, language and last update"
+    },
+    "stats": {
+      "desc": "GitHub contributions, languages and totals · --repos or --all"
+    },
+    "wakatime": {
+      "desc": "This week's coding time · --now or --cards"
+    },
+    "spotify": {
+      "desc": "What I'm listening to + the last 10 tracks (via Last.fm)"
     }
   },
   "help": {
@@ -216,7 +229,14 @@
   },
   "status": {
     "nextMatch": "Atlético's next match",
-    "live": "Atlético LIVE"
+    "live": "Atlético LIVE",
+    "coding": "Coding now",
+    "session": "{{min}} min session",
+    "listening": "Listening now",
+    "lastListened": "Last played",
+    "visits_one": "{{count}} visit",
+    "visits_other": "{{count}} visits",
+    "weather": "{{temp}}°C, {{sky}} in Belo Horizonte"
   },
   "campeonato": {
     "loading": "fetching Atlético's matches…",
@@ -279,5 +299,51 @@
     "vamoWhat": "vamo what? Try: vamo galo",
     "vamoGalo": "GAAALOOOO! ★ ★ ★",
     "exit": "There is no exit. Once Galo, always Galo."
+  },
+  "github": {
+    "loading": "querying GitHub…",
+    "title": "@{{user}}'s repositories ({{count}})",
+    "stars": "stars",
+    "forks": "forks",
+    "more": "All of them at"
+  },
+  "stats": {
+    "title": "GitHub over the last 12 months",
+    "contributions": "contributions",
+    "commits": "commits",
+    "prs": "pull requests",
+    "repos": "repositories",
+    "stars": "stars",
+    "followers": "followers",
+    "languages": "Most used languages (by code size)",
+    "topRepos": "Top repositories",
+    "heatmapLabel": "Contribution graph: {{total}} in the last year",
+    "cellTooltip": "{{count}} contributions on {{date}}",
+    "less": "less",
+    "more": "more",
+    "modes": "More:"
+  },
+  "wakatime": {
+    "loading": "querying WakaTime…",
+    "title": "Coding time over the last 7 days",
+    "titleNow": "In the editor right now",
+    "total": "this week",
+    "average": "daily average",
+    "languagesCount": "languages",
+    "languages": "By language",
+    "projects": "By project",
+    "updating": "WakaTime is still recalculating this week; numbers may change.",
+    "codingNow": "Coding right now",
+    "session": "{{min}} min session",
+    "today": "Today: {{time}}",
+    "offline": "Offline right now",
+    "lastSeen": "seen {{when}}",
+    "modes": "Modes:"
+  },
+  "spotify": {
+    "loading": "querying Last.fm…",
+    "nowPlaying": "now playing",
+    "silence": "Nothing playing right now.",
+    "recent": "Recently played"
   }
 }

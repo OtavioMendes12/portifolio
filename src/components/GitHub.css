@@ -1,0 +1,29 @@
+.repo {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.repo-name {
+  overflow-wrap: anywhere;
+}
+
+.repo-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.repo-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.repo-meta svg {
+  vertical-align: -0.1em;
+}

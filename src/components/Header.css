@@ -120,3 +120,20 @@
     white-space: nowrap;
   }
 }
+
+.crest-3d,
+.crest-placeholder {
+  display: block;
+  width: 112px;
+  height: 128px;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+@media (max-width: 900px) {
+  .crest-3d,
+  .crest-placeholder {
+    width: 84px;
+    height: 96px;
+  }
+}
