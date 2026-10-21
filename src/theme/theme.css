@@ -1,0 +1,216 @@
+/*
+ * Design tokens. As cores existem SÓ aqui; componentes usam var(--token).
+ * Tema ativo: <html data-theme="galo|escuro|claro|matrix">.
+ */
+
+:root {
+  --font-mono: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-base: 1rem;
+  --fs-sm: 0.875em;
+  --fs-xs: 0.78em;
+  --fs-lg: 1.15em;
+  --lh: 1.55;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  --radius-1: 4px;
+  --radius-2: 6px;
+  --radius-3: 8px;
+  --radius-4: 10px;
+  --radius-pill: 999px;
+
+  --dot-red: #ff5f57;
+  --dot-yellow: #febc2e;
+  --dot-green: #28c840;
+
+  --shadow: 0 24px 64px rgb(0 0 0 / 0.45);
+  --transition: 160ms ease;
+}
+
+@media (max-width: 768px) {
+  :root { --fs-base: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  :root { --fs-base: 0.85rem; }
+}
+
+/* ---------- galo (padrão) ---------- */
+:root,
+[data-theme='galo'] {
+  color-scheme: dark;
+  --bg-page: #000000;
+  --bg-terminal: #0a0a0a;
+  --surface: #161616;
+  --surface-2: #1f1f1f;
+  --border: #3a3a3a;
+  --text: #ffffff;
+  --text-muted: #b5b5b5;
+  --text-dim: #8c8c8c;
+  --accent: #ffd503;
+  --accent-hover: #e6c000;
+  --on-accent: #000000;
+  --terminal-chrome: #ffd503;
+  --success: #4ade80;
+  --warn: #fb923c;
+  --info: #60a5fa;
+  --busy: #f87171;
+  --window-border: var(--accent);
+  --accent-soft: rgb(255 213 3 / 0.12);
+  --page-pattern: repeating-linear-gradient(90deg, rgb(255 255 255 / 0.04) 0 56px, transparent 56px 112px);
+}
+
+/* ---------- escuro ---------- */
+[data-theme='escuro'] {
+  color-scheme: dark;
+  --bg-page: #1a202c;
+  --bg-terminal: #252a33;
+  --surface: #2d3748;
+  --surface-2: #374357;
+  --border: #4a5568;
+  --text: #e2e8f0;
+  --text-muted: #a0aec0;
+  --text-dim: #97a3b6;
+  --accent: #00ff9d;
+  --accent-hover: #00cc7a;
+  --on-accent: #0f172a;
+  --terminal-chrome: #a2a2a2;
+  --success: #68d391;
+  --warn: #f6ad55;
+  --info: #63b3ed;
+  --busy: #fc8181;
+  --window-border: var(--border);
+  --accent-soft: rgb(0 255 157 / 0.12);
+  --page-pattern: none;
+}
+
+/* ---------- claro ---------- */
+[data-theme='claro'] {
+  color-scheme: light;
+  --bg-page: #cfcfcf;
+  --bg-terminal: #dddddd;
+  --surface: #f2f2f2;
+  --surface-2: #e8e8e8;
+  --border: #a0a7b2;
+  --text: #1a1e24;
+  --text-muted: #4a5568;
+  --text-dim: #525c6b;
+  --accent: #00663f;
+  --accent-hover: #004d33;
+  --on-accent: #ffffff;
+  --terminal-chrome: #a8323f;
+  --success: #17602e;
+  --warn: #8a4b00;
+  --info: #1d4ed8;
+  --busy: #a3202c;
+  --window-border: var(--border);
+  --accent-soft: rgb(0 102 63 / 0.1);
+  --page-pattern: none;
+  --shadow: 0 24px 64px rgb(0 0 0 / 0.18);
+}
+
+/* ---------- matrix ---------- */
+[data-theme='matrix'] {
+  color-scheme: dark;
+  --bg-page: #000000;
+  --bg-terminal: #000000;
+  --surface: #061a08;
+  --surface-2: #0a240c;
+  --border: #1f5c1b;
+  --text: #d2fbc6;
+  --text-muted: #7dcb6b;
+  --text-dim: #4f9a40;
+  --accent: #42c920;
+  --accent-hover: #36a51a;
+  --on-accent: #000000;
+  --terminal-chrome: #42c920;
+  --success: #42c920;
+  --warn: #e5d34a;
+  --info: #5fd4c4;
+  --busy: #ff6b6b;
+  --window-border: var(--border);
+  --accent-soft: rgb(66 201 32 / 0.12);
+  --page-pattern: none;
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg-page);
+  background-image: var(--page-pattern);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  -webkit-text-size-adjust: 100%;
+  /* sem ligaduras: em terminal, -- precisa continuar sendo dois hífens */
+  font-variant-ligatures: none;
+  font-feature-settings: "calt" 0, "liga" 0;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

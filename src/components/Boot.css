@@ -1,0 +1,23 @@
+.boot {
+  padding-top: var(--space-2);
+}
+
+.boot-line {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.boot-ok {
+  color: var(--success);
+}
+
+.boot-skip {
+  margin-top: var(--space-3);
+  color: var(--text-dim);
+  font-size: var(--fs-sm);
+  animation: boot-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes boot-pulse {
+  50% { opacity: 0.4; }
+}

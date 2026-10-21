@@ -1,0 +1,92 @@
+{
+  "ui": {
+    "title": "Portfolio terminal",
+    "prompt": "visitor@galo:~$",
+    "inputLabel": "Type a command",
+    "terminalLabel": "Terminal output",
+    "clock": "Brasília time: {{time}}",
+    "langSwitch": "Switch language to {{lang}}",
+    "themeButton": "{{name}} theme",
+    "themeGroup": "Themes",
+    "windowClose": "Clear the screen",
+    "windowMin": "Back to top",
+    "windowMax": "Maximize or restore the window",
+    "loading": "loading…",
+    "copy": "copy",
+    "copied": "copied!",
+    "notConfigured": "integration not configured"
+  },
+  "themes": {
+    "galo": "Galo",
+    "escuro": "Dark",
+    "claro": "Light",
+    "matrix": "Matrix"
+  },
+  "boot": {
+    "lines": [
+      "Loading GaloOS 1908...",
+      "Mounting /home/visitor...",
+      "Connecting to Arena MRV...",
+      "Warming up the JVM (Java 21)...",
+      "Compiling Spring Boot...",
+      "Tuning the \"Galo!\" chant...",
+      "System ready."
+    ],
+    "skip": "press any key to skip"
+  },
+  "header": {
+    "typing": ["Back-end Developer", "Java & Spring Boot", "Atlético fan"],
+    "welcome": "Welcome to my Portfolio",
+    "hint": "Type <help>help</help> to see the commands or <ask>ask</ask> to learn more about me.",
+    "logoAlt": "Otavio's logo",
+    "shieldAlt": "Clube Atlético Mineiro crest",
+    "bannerLabel": "OTAVIO"
+  },
+  "card": {
+    "role": "Role",
+    "company": "Company",
+    "companyVia": "{{company}} · via {{via}}",
+    "education": "Education",
+    "fan": "Team",
+    "city": "City",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "commands": {
+    "ajuda": { "desc": "Lists the commands and keyboard shortcuts" },
+    "limpar": { "desc": "Clears the screen" },
+    "tema": { "desc": "Cycles the theme or applies one directly", "usage": "theme [--galo | --dark | --light | --matrix]" },
+    "idioma": { "desc": "Switches between Portuguese and English", "usage": "lang [pt | en]" }
+  },
+  "help": {
+    "title": "Available commands",
+    "aliases": "also",
+    "keysTitle": "Shortcuts",
+    "keys": {
+      "history": "↑ / ↓ browse the history",
+      "tab": "Tab completes · Tab Tab lists the options",
+      "clear": "Ctrl + L clears the screen",
+      "click": "click a highlighted word to type it into the terminal"
+    },
+    "tip": "Tip: commands take options, e.g. <cmd>theme --matrix</cmd>"
+  },
+  "notFound": {
+    "message": "command not found: {{name}}",
+    "suggestion": "Did you mean <cmd>{{suggestion}}</cmd>?",
+    "help": "Type <cmd>help</cmd> to see the list."
+  },
+  "tema": {
+    "changed": "Theme switched to <b>{{name}}</b>.",
+    "unknown": "Unknown theme: {{name}}.",
+    "options": "Options:"
+  },
+  "idioma": {
+    "changed": "Language switched to English.",
+    "unknown": "Unknown language: {{name}}. Use pt or en."
+  },
+  "errors": {
+    "generic": "Oops, something went wrong running this command. Try again in a moment.",
+    "network": "I couldn't fetch the data right now. Try again in a moment."
+  }
+}

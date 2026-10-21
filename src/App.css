@@ -1,0 +1,141 @@
+/* Layout da janela + ajustes no CSS embutido do react-terminal-ui.
+   Seletores começam com .app para vencer o <style> que a lib injeta depois. */
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: var(--space-4);
+}
+
+.app .react-terminal-wrapper {
+  width: 100%;
+  max-width: 1120px;
+  height: calc(100dvh - 2 * var(--space-4));
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: var(--bg-terminal);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  border: 1px solid var(--window-border);
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow);
+  transition: max-width var(--transition);
+}
+
+/* o título padrão da lib (via ::after) é substituído pela TitleBar */
+.app .react-terminal-wrapper::after {
+  display: none;
+}
+
+.app .react-terminal {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  position: relative;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--border) transparent;
+}
+
+.app .react-terminal-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.app .react-terminal-line::before,
+.app .react-terminal-light .react-terminal-line::before {
+  color: var(--accent);
+}
+
+.app .react-terminal-active-input {
+  margin-top: var(--space-2);
+}
+
+/* cursor sempre piscando, mesmo sem foco */
+.app .react-terminal-active-input .cursor {
+  position: relative;
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  top: 0.2em;
+  background: var(--text);
+  animation: blink 1s step-end infinite;
+}
+
+/* 16px evita o zoom automático do iOS ao focar */
+.app .terminal-hidden-input {
+  position: fixed;
+  left: -1000px;
+  top: 0;
+  font-size: 16px;
+  opacity: 0;
+}
+
+.app.is-booting .react-terminal-active-input {
+  visibility: hidden;
+}
+
+.app--max {
+  padding: 0;
+}
+
+.app--max .react-terminal-wrapper {
+  max-width: none;
+  height: 100dvh;
+  border-radius: 0;
+  border-width: 0;
+}
+
+.app--max .titlebar {
+  border-radius: 0;
+}
+
+.log {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.tab-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin: var(--space-2) 0 0;
+  color: var(--text-muted);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: var(--space-2);
+  }
+  .app .react-terminal-wrapper {
+    height: calc(100dvh - 2 * var(--space-2));
+  }
+  .app .react-terminal {
+    padding: var(--space-3) var(--space-3) var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0;
+  }
+  .app .react-terminal-wrapper {
+    height: 100dvh;
+    border-radius: 0;
+    border-width: 0;
+  }
+  .app .titlebar {
+    border-radius: 0;
+  }
+}

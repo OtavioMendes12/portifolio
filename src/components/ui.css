@@ -1,0 +1,194 @@
+/* Primitivas visuais compartilhadas pelas saídas dos comandos. Só tokens. */
+
+.out {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.out p,
+.out ul,
+.out ol {
+  margin: 0;
+}
+
+.out-title {
+  color: var(--accent);
+  margin: 0 0 var(--space-2);
+}
+
+.out-muted { color: var(--text-muted); }
+.out-dim { color: var(--text-dim); }
+.out-error { color: var(--busy); margin: 0; }
+.out-success { color: var(--success); }
+.accent { color: var(--accent); }
+
+.echo {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.echo-prompt {
+  color: var(--accent);
+}
+
+.entry {
+  display: grid;
+  gap: var(--space-2);
+  scroll-margin-top: var(--space-3);
+}
+
+.cmd-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.cmd-link:hover {
+  color: var(--accent-hover);
+  text-decoration-style: solid;
+}
+
+.spinner {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.spinner-frame {
+  color: var(--accent);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.swatch {
+  display: inline-block;
+  width: 2.2em;
+  height: 1.1em;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+}
+
+/* cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3);
+  padding: var(--space-3);
+  min-width: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-3);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.badge--accent {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-2);
+  background: var(--accent);
+  color: var(--on-accent);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn--ghost:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: var(--radius-pill);
+  background: var(--text-dim);
+  margin-right: var(--space-2);
+  vertical-align: 0.05em;
+}
+
+.status-dot--success { background: var(--success); }
+.status-dot--warn { background: var(--warn); }
+.status-dot--info { background: var(--info); }
+.status-dot--busy { background: var(--busy); }
+.status-dot--accent { background: var(--accent); }
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.field label {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2);
+  background: var(--bg-terminal);
+  color: var(--text);
+  font-size: 16px;
+}
+
+.input:focus-visible {
+  border-color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}

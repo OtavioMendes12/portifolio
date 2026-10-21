@@ -1,0 +1,92 @@
+{
+  "ui": {
+    "title": "Portfolio terminal",
+    "prompt": "visitante@galo:~$",
+    "inputLabel": "Digite um comando",
+    "terminalLabel": "Saída do terminal",
+    "clock": "Horário de Brasília: {{time}}",
+    "langSwitch": "Mudar idioma para {{lang}}",
+    "themeButton": "Tema {{name}}",
+    "themeGroup": "Temas",
+    "windowClose": "Limpar a tela",
+    "windowMin": "Voltar ao topo",
+    "windowMax": "Maximizar ou restaurar a janela",
+    "loading": "carregando…",
+    "copy": "copiar",
+    "copied": "copiado!",
+    "notConfigured": "integração não configurada"
+  },
+  "themes": {
+    "galo": "Galo",
+    "escuro": "Escuro",
+    "claro": "Claro",
+    "matrix": "Matrix"
+  },
+  "boot": {
+    "lines": [
+      "Carregando GaloOS 1908...",
+      "Montando /home/visitante...",
+      "Conectando à Arena MRV...",
+      "Aquecendo a JVM (Java 21)...",
+      "Compilando Spring Boot...",
+      "Afinando o grito de \"Galo!\"...",
+      "Sistema pronto."
+    ],
+    "skip": "pressione qualquer tecla para pular"
+  },
+  "header": {
+    "typing": ["Desenvolvedor Back-end", "Java & Spring Boot", "Atleticano"],
+    "welcome": "Boas-vindas ao meu Portfólio",
+    "hint": "Digite <help>ajuda</help> para ver os comandos ou <ask>pergunta</ask> para saber mais sobre mim.",
+    "logoAlt": "Logo do Otavio",
+    "shieldAlt": "Escudo do Clube Atlético Mineiro",
+    "bannerLabel": "OTAVIO"
+  },
+  "card": {
+    "role": "Cargo",
+    "company": "Empresa",
+    "companyVia": "{{company}} · via {{via}}",
+    "education": "Formação",
+    "fan": "Time",
+    "city": "Cidade",
+    "email": "E-mail",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "commands": {
+    "ajuda": { "desc": "Lista os comandos e os atalhos de teclado" },
+    "limpar": { "desc": "Limpa a tela" },
+    "tema": { "desc": "Alterna o tema ou aplica um direto", "usage": "tema [--galo | --escuro | --claro | --matrix]" },
+    "idioma": { "desc": "Alterna entre português e inglês", "usage": "idioma [pt | en]" }
+  },
+  "help": {
+    "title": "Comandos disponíveis",
+    "aliases": "também",
+    "keysTitle": "Atalhos",
+    "keys": {
+      "history": "↑ / ↓ navegam pelo histórico",
+      "tab": "Tab completa · Tab Tab lista as opções",
+      "clear": "Ctrl + L limpa a tela",
+      "click": "clique numa palavra destacada para escrevê-la no terminal"
+    },
+    "tip": "Dica: os comandos aceitam opções, ex.: <cmd>tema --matrix</cmd>"
+  },
+  "notFound": {
+    "message": "comando não encontrado: {{name}}",
+    "suggestion": "Você quis dizer <cmd>{{suggestion}}</cmd>?",
+    "help": "Digite <cmd>ajuda</cmd> para ver a lista."
+  },
+  "tema": {
+    "changed": "Tema alterado para <b>{{name}}</b>.",
+    "unknown": "Tema desconhecido: {{name}}.",
+    "options": "Opções:"
+  },
+  "idioma": {
+    "changed": "Idioma alterado para português.",
+    "unknown": "Idioma desconhecido: {{name}}. Use pt ou en."
+  },
+  "errors": {
+    "generic": "Ops, algo deu errado ao executar este comando. Tente de novo em instantes.",
+    "network": "Não consegui buscar os dados agora. Tente de novo em instantes."
+  }
+}

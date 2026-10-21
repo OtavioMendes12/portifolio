@@ -1,397 +1,51 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Otávio Mendes — Fullstack Developer. Java, Go, Python, Spring Boot, AWS, Kubernetes, Terraform.">
-    <meta name="google" content="notranslate">
-    <title>CORE_OS // Otávio Mendes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="images/Texto_do_seu_parágrafo__2_-removebg-preview.ico">
-</head>
-<body>
-    <div class="crt-overlay" aria-hidden="true"></div>
+<!doctype html>
+<html lang="pt-BR" data-theme="galo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title>Otavio Mendes · Desenvolvedor Back-end Java &amp; Spring Boot</title>
+    <meta name="description" content="Portfólio interativo em formato de terminal de Otavio Mendes, desenvolvedor back-end pleno (Java, Spring Boot, microsserviços e AWS) em Belo Horizonte." />
+    <meta name="author" content="Otavio Mendes" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="pt-BR" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="en" href="%SITE_URL%/?lang=en" />
 
-    <div class="app-shell">
-        <!-- ================= TOPBAR ================= -->
-        <header class="topbar">
-            <div class="brand">
-                <span class="brand-dot"></span>
-                CORE_OS
-            </div>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Otavio Mendes · Portfolio terminal" />
+    <meta property="og:title" content="Otavio Mendes · Desenvolvedor Back-end" />
+    <meta property="og:description" content="Um terminal interativo no navegador: digite comandos para conhecer minha trajetória, projetos e o Galo." />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Otavio Mendes · Desenvolvedor Back-end" />
+    <meta name="twitter:description" content="Um terminal interativo no navegador com tema do Galo." />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
 
-            <nav class="topnav" id="topnav" aria-label="Primary">
-                <a href="#home" class="topnav-link" data-panel="home">HOME</a>
-                <a href="#projects" class="topnav-link" data-panel="projects">PROJECTS</a>
-                <a href="#logs" class="topnav-link" data-panel="logs">LOGS</a>
-                <a href="#io" class="topnav-link" data-panel="io">DATA</a>
-            </nav>
-
-            <a href="#io" class="btn-outline system-up" data-panel="io">SYSTEM_UP</a>
-
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            </button>
-        </header>
-
-        <!-- ================= SIDEBAR ================= -->
-        <aside class="sidebar">
-            <div class="sidebar-user">
-                <img src="images/user.png" alt="" class="sidebar-avatar">
-                <span class="sidebar-tag">ARCH_01</span>
-            </div>
-
-            <nav class="sidebar-nav" aria-label="Sections">
-                <a href="#home" class="sidebar-link" data-panel="home" title="Home">
-                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    <span>ROOT</span>
-                </a>
-                <a href="#projects" class="sidebar-link" data-panel="projects" title="Projects">
-                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="5" rx="1"/><rect x="4" y="8" width="16" height="13" rx="1"/><line x1="10" y1="13" x2="14" y2="13"/></svg>
-                    <span>MODULES</span>
-                </a>
-                <a href="#logs" class="sidebar-link" data-panel="logs" title="Logs">
-                    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><polyline points="12,9 12,13 15,15"/><path d="M6 3 L3 6"/><path d="M18 3 L21 6"/></svg>
-                    <span>HISTORY</span>
-                </a>
-                <a href="#io" class="sidebar-link" data-panel="io" title="Contact">
-                    <svg class="icon" viewBox="0 0 24 24"><polygon points="3,4 21,12 3,20 7,12"/></svg>
-                    <span>IO</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <span>v1.0.2 // ARCH_01</span>
-            </div>
-        </aside>
-
-        <!-- ================= MAIN ================= -->
-        <main class="main-content" id="main-content">
-
-            <!-- ---------- HOME / ROOT ---------- -->
-            <section class="panel active-panel" id="home" data-title="HOME">
-                <div class="panel-inner home-grid">
-                    <div class="home-copy">
-                        <p class="operator-id">OPERATOR: <span>OTÁVIO MENDES</span></p>
-                        <h1 class="glitch-title">ARCH_01: <span>MID-LEVEL FULLSTACK<br>DEVELOPER</span></h1>
-                        <p class="home-sub">Scalable Backend Solutions <span class="pipe">|</span> Java &bull; Go &bull; Python &bull; Cloud Infrastructure</p>
-
-                        <div class="terminal-window">
-                            <div class="terminal-titlebar">
-                                <span class="dot dot-red"></span>
-                                <span class="dot dot-yellow"></span>
-                                <span class="dot dot-green"></span>
-                                <span class="terminal-path">session: bash — arch_01@core-os — 120x40</span>
-                            </div>
-                            <div class="terminal-body" id="terminal-body" aria-live="polite"></div>
-                        </div>
-
-                        <div class="home-actions">
-                            <a href="#projects" class="btn-solid" data-panel="projects">BOOT SYSTEM</a>
-                            <a href="#logs" class="btn-outline" data-panel="logs">[ READ_LOGS ]</a>
-                        </div>
-                    </div>
-
-                    <div class="home-badge" aria-hidden="true">
-                        <svg viewBox="0 0 200 200" class="badge-ring">
-                            <defs>
-                                <path id="badge-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"></path>
-                            </defs>
-                            <circle cx="100" cy="100" r="75" class="badge-track"></circle>
-                            <text>
-                                <textPath href="#badge-circle" startOffset="0%">
-                                    ENCRYPTED_FLOW &bull; ENCRYPTED_FLOW &bull; ENCRYPTED_FLOW &bull;
-                                </textPath>
-                            </text>
-                        </svg>
-                        <span class="badge-core">
-                        <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="1.5"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4"/></svg>
-                    </span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ---------- PROJECTS / MODULES ---------- -->
-            <section class="panel" id="projects" data-title="PROJECTS">
-                <div class="panel-inner">
-                    <h1 class="panel-title">MODULE_LIBRARY <span class="tag-access">[ ACCESS_GRANTED ]</span></h1>
-                    <p class="panel-lede">Repositório centralizado de sistemas e entregas técnicas. Todos os módulos abaixo estão versionados e disponíveis no repositório público.</p>
-
-                    <div class="module-grid">
-                        <article class="module-card">
-                            <div class="module-head">
-                                <span class="mod-id">MOD_001</span>
-                                <span class="mod-dots"><i></i><i></i><i></i></span>
-                            </div>
-                            <div class="module-thumb" style="background-image:url('images/codigofundo.jpg')"></div>
-                            <h2>Portfolio</h2>
-                            <p>Portfolio pessoal construído com HTML, CSS e JavaScript (Node.js), com foco em performance e responsividade.</p>
-                            <div class="tag-row">
-                                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JAVASCRIPT</span>
-                            </div>
-                            <a href="https://github.com/OtavioMendes12/portifolio" target="_blank" rel="noopener" class="module-link">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M14 4 h6 v6"/><line x1="20" y1="4" x2="10" y2="14"/><path d="M18 14 v6 h-14 v-14 h6"/></svg> REPO
-                            </a>
-                        </article>
-
-                        <article class="module-card">
-                            <div class="module-head">
-                                <span class="mod-id">MOD_002</span>
-                                <span class="mod-dots"><i></i><i></i><i></i></span>
-                            </div>
-                            <div class="module-thumb" style="background-image:url('images/codigo.jpg')"></div>
-                            <h2>Data Scraping</h2>
-                            <p>Software que coleta dados do site brasileiro de reclamações e realiza uma análise automatizada sobre as informações extraídas.</p>
-                            <div class="tag-row">
-                                <span class="tag">PYTHON</span><span class="tag">WEB_SCRAPING</span>
-                            </div>
-                            <a href="https://github.com/OtavioMendes12/WEBSCRAPPING" target="_blank" rel="noopener" class="module-link">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M14 4 h6 v6"/><line x1="20" y1="4" x2="10" y2="14"/><path d="M18 14 v6 h-14 v-14 h6"/></svg> REPO
-                            </a>
-                        </article>
-
-                        <article class="module-card">
-                            <div class="module-head">
-                                <span class="mod-id">MOD_003</span>
-                                <span class="mod-dots"><i></i><i></i><i></i></span>
-                            </div>
-                            <div class="module-thumb" style="background-image:url('images/arquiteturaHexagonal.jpg')"></div>
-                            <h2>Arquitetura Hexagonal — Python</h2>
-                            <p>Sistema de gestão de pedidos que permite criar, processar e listar pedidos, usando arquitetura hexagonal para separar regra de negócio da persistência de dados.</p>
-                            <div class="tag-row">
-                                <span class="tag">PYTHON</span><span class="tag">HEXAGONAL_ARCH</span>
-                            </div>
-                            <a href="https://github.com/OtavioMendes12/Arquitetura-Hexagonal" target="_blank" rel="noopener" class="module-link">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M14 4 h6 v6"/><line x1="20" y1="4" x2="10" y2="14"/><path d="M18 14 v6 h-14 v-14 h6"/></svg> REPO
-                            </a>
-                        </article>
-
-                        <article class="module-card">
-                            <div class="module-head">
-                                <span class="mod-id">MOD_004</span>
-                                <span class="mod-dots"><i></i><i></i><i></i></span>
-                            </div>
-                            <div class="module-thumb" style="background-image:url('images/site%20todo.png')"></div>
-                            <h2>Todo List Web</h2>
-                            <p>Aplicação web desenvolvida com Java Spring Boot, React e uma API CRUD para organizar tarefas do dia a dia.</p>
-                            <div class="tag-row">
-                                <span class="tag">JAVA</span><span class="tag">SPRING_BOOT</span><span class="tag">REACT</span>
-                            </div>
-                            <a href="https://github.com/OtavioMendes12/Todo-List" target="_blank" rel="noopener" class="module-link">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M14 4 h6 v6"/><line x1="20" y1="4" x2="10" y2="14"/><path d="M18 14 v6 h-14 v-14 h6"/></svg> REPO
-                            </a>
-                        </article>
-
-                        <article class="module-card">
-                            <div class="module-head">
-                                <span class="mod-id">MOD_005</span>
-                                <span class="mod-dots"><i></i><i></i><i></i></span>
-                            </div>
-                            <div class="module-thumb" style="background-image:url('images/LocaCar.png')"></div>
-                            <h2>Car Rental</h2>
-                            <p>Sistema de locação de carros desenvolvido em linguagem C, executado via prompt de comando.</p>
-                            <div class="tag-row">
-                                <span class="tag">C</span>
-                            </div>
-                            <a href="https://github.com/OtavioMendes12/Locadora-de-Carros" target="_blank" rel="noopener" class="module-link">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M14 4 h6 v6"/><line x1="20" y1="4" x2="10" y2="14"/><path d="M18 14 v6 h-14 v-14 h6"/></svg> REPO
-                            </a>
-                        </article>
-                    </div>
-
-                    <div class="capabilities">
-                        <span class="capabilities-title">SYSTEM_CAPABILITIES_MANIFEST</span>
-                        <div class="tag-row tag-row-green">
-                            <span class="tag tag-green">JAVA</span>
-                            <span class="tag tag-green">SPRING_BOOT</span>
-                            <span class="tag tag-green">GO</span>
-                            <span class="tag tag-green">PYTHON</span>
-                            <span class="tag tag-green">AWS</span>
-                            <span class="tag tag-green">TERRAFORM</span>
-                            <span class="tag tag-green">KUBERNETES</span>
-                            <span class="tag tag-green">DOCKER</span>
-                            <span class="tag tag-green">MYSQL</span>
-                            <span class="tag tag-green">NODEJS</span>
-                            <span class="tag tag-green">LINUX</span>
-                            <span class="tag tag-green">AGILE</span>
-                            <span class="tag tag-green">RPA</span>
-                        </div>
-                    </div>
-
-                    <div class="mini-terminal">
-                        <div class="terminal-titlebar">
-                            <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
-                            <span class="terminal-path">TERMINAL_v1.0.2</span>
-                        </div>
-                        <div class="terminal-body" id="terminal-body-projects" aria-live="polite"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ---------- LOGS / HISTORY ---------- -->
-            <section class="panel" id="logs" data-title="LOGS">
-                <div class="panel-inner">
-                    <h1 class="panel-title">CORE_HISTORY</h1>
-                    <p class="panel-lede access-line">ACCESS_LEVEL: [ADMINISTRATOR] &nbsp;|&nbsp; RECENT_POLL: OK</p>
-
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-dot timeline-dot-active"></span>
-                            <div class="timeline-marker">[PRESENT]</div>
-                            <div class="timeline-card">
-                                <div class="timeline-card-head">
-                                    <span class="tag-flag tag-flag-critical">[CRITICAL_ROLE]</span>
-                                    <span class="status-pill status-active">PROCESS_ACTIVE</span>
-                                </div>
-                                <h2>Fullstack Developer @ itexto Consultoria</h2>
-                                <p>Arquitetando soluções corporativas robustas com Java/Spring Boot e Go. Orquestrando infraestrutura em nuvem via AWS, Terraform e Kubernetes. Otimização de alocação de recursos em nuvem, resultando em uma redução documentada de <strong>$700/mês</strong> em custos de infraestrutura.</p>
-                                <div class="tag-row">
-                                    <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Go</span><span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">Angular</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-marker">[PREVIOUS]</div>
-                            <div class="timeline-card">
-                                <div class="timeline-card-head">
-                                    <span class="tag-flag">[INFO]</span>
-                                    <span class="status-pill">SYSTEM_MAINTENANCE</span>
-                                </div>
-                                <h2>Backend Developer @ Busca Passagens</h2>
-                                <p>Desenvolvimento e manutenção de microsserviços escaláveis para sistemas de emissão de passagens aéreas. Criação de ferramentas internas de automação que otimizaram fluxos operacionais e o tempo de resposta do sistema.</p>
-                                <div class="tag-row">
-                                    <span class="tag">Microservices</span><span class="tag">Backend</span><span class="tag">Automation</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-marker">[ENTRY_LOG]</div>
-                            <div class="timeline-card">
-                                <div class="timeline-card-head">
-                                    <span class="tag-flag">[INFO]</span>
-                                    <span class="status-pill">DEP_COMPLETED</span>
-                                </div>
-                                <h2>Backend Development Internship @ Bluetape</h2>
-                                <p>Início da carreira profissional com foco em automação de processos. Desenvolvimento de bots de web scraping e automação usando Python e Selenium para aumentar a eficiência na coleta de dados.</p>
-                                <div class="tag-row">
-                                    <span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Web Scraping</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="logs-bottom-grid">
-                        <div class="stack-usage">
-                            <div class="stack-usage-title"><svg class="icon icon-inline" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg> TECHNICAL_STACK_USAGE</div>
-                            <div class="bar-row">
-                                <span class="bar-label">JAVA</span>
-                                <div class="bar-track"><div class="bar-fill" style="--bar-value:95%"></div></div>
-                                <span class="bar-value">95%</span>
-                            </div>
-                            <div class="bar-row">
-                                <span class="bar-label">GO</span>
-                                <div class="bar-track"><div class="bar-fill" style="--bar-value:85%"></div></div>
-                                <span class="bar-value">85%</span>
-                            </div>
-                            <div class="bar-row">
-                                <span class="bar-label">AWS/CLOUD</span>
-                                <div class="bar-track"><div class="bar-fill" style="--bar-value:80%"></div></div>
-                                <span class="bar-value">80%</span>
-                            </div>
-                            <div class="bar-row">
-                                <span class="bar-label">SQL/NOSQL</span>
-                                <div class="bar-track"><div class="bar-fill" style="--bar-value:90%"></div></div>
-                                <span class="bar-value">90%</span>
-                            </div>
-
-                            <div class="cert-row">
-                                <svg class="icon icon-inline" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8 14 L6 21 L12 18 L18 21 L16 14"/></svg>
-                                <span>CERTIFIED_MODULE:</span>
-                                <a href="https://cert.efset.org/Wx6pvb" target="_blank" rel="noopener">English C1 — EF SET</a>
-                            </div>
-                        </div>
-
-                        <div class="op-logs">
-                            <div class="op-logs-title">OPERATIONAL_LOGS</div>
-                            <div class="terminal-body op-logs-body" id="terminal-body-logs" aria-live="polite"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ---------- DATA / IO ---------- -->
-            <section class="panel" id="io" data-title="DATA">
-                <div class="panel-inner">
-                    <h1 class="panel-title">IO_CHANNELS <span class="tag-access">[ SECURE ]</span></h1>
-                    <p class="panel-lede">Estabeleça uma conexão. Resposta mais rápida via WhatsApp.</p>
-
-                    <div class="io-grid">
-                        <a class="io-port" href="https://wa.me/5531973448484" target="_blank" rel="noopener">
-                            <div class="io-port-head">
-                                <span class="io-port-num">PORT 443/tcp</span>
-                                <span class="io-status"></span>
-                            </div>
-                            <img src="images/whatsapp-icon.png" alt="" class="io-icon">
-                            <h2>WhatsApp</h2>
-                            <p>Linha direta — resposta mais rápida</p>
-                        </a>
-
-                        <a class="io-port" href="https://www.linkedin.com/in/otavio-mendes-852b85174/" target="_blank" rel="noopener">
-                            <div class="io-port-head">
-                                <span class="io-port-num">PORT 22/tcp</span>
-                                <span class="io-status"></span>
-                            </div>
-                            <img src="images/linkedin-icon.png" alt="" class="io-icon">
-                            <h2>LinkedIn</h2>
-                            <p>Rede profissional e trajetória</p>
-                        </a>
-
-                        <a class="io-port" href="https://github.com/OtavioMendes12" target="_blank" rel="noopener">
-                            <div class="io-port-head">
-                                <span class="io-port-num">PORT 80/tcp</span>
-                                <span class="io-status"></span>
-                            </div>
-                            <img src="images/github-icon.png" alt="" class="io-icon">
-                            <h2>GitHub</h2>
-                            <p>Código-fonte e repositórios</p>
-                        </a>
-                    </div>
-
-                    <a href="images/my-cv.pdf" target="_blank" rel="noopener" class="btn-solid cv-btn">
-                        <svg class="icon icon-inline" viewBox="0 0 24 24"><path d="M6 2 h9 l3 3 v17 h-12 z"/><polyline points="15,2 15,5 18,5"/><line x1="9" y1="12" x2="9" y2="17"/><polyline points="7,15 9,17 11,15"/></svg> DOWNLOAD_CV
-                    </a>
-
-                    <div class="mini-terminal">
-                        <div class="terminal-titlebar">
-                            <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
-                            <span class="terminal-path">connection_manager</span>
-                        </div>
-                        <div class="terminal-body" id="terminal-body-io" aria-live="polite"></div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- ================= STATUS BAR ================= -->
-        <footer class="statusbar">
-            <span class="statusbar-left">© 2026 SYSTEM_CORE v1.0.2</span>
-            <span class="statusbar-mid">
-                <a href="https://github.com/OtavioMendes12" target="_blank" rel="noopener">[ git_hub ]</a>
-                <a href="https://www.linkedin.com/in/otavio-mendes-852b85174/" target="_blank" rel="noopener">[ linked_in ]</a>
-                <a href="https://wa.me/5531973448484" target="_blank" rel="noopener">[ whatsapp ]</a>
-            </span>
-            <span class="statusbar-right">STATUS: <span class="status-optimal">OPTIMAL</span> // UPTIME: 99.998%</span>
-        </footer>
-    </div>
-
-    <script src="app.js"></script>
-</body>
+    <script>
+      // Aplica o tema salvo antes do React montar, para não piscar.
+      (function () {
+        try {
+          var t = JSON.parse(localStorage.getItem('theme'));
+          if (['galo', 'escuro', 'claro', 'matrix'].indexOf(t) > -1) {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) { /* sem storage */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <h1>Otavio Mendes · Desenvolvedor Back-end</h1>
+      <p>Desenvolvedor back-end pleno focado em Java e Spring Boot, em Belo Horizonte. Este portfólio é um terminal interativo e precisa de JavaScript.</p>
+      <p><a href="https://github.com/OtavioMendes12">GitHub</a> · <a href="https://www.linkedin.com/in/otavio-mendes-852b85174/">LinkedIn</a> · <a href="mailto:otaviojulio.mendes@gmail.com">E-mail</a></p>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
