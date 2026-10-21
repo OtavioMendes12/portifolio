@@ -1,12 +1,42 @@
 import { useTranslation } from 'react-i18next';
 import { getBest, saveBest, useGameCanvas } from '../lib/useGameCanvas';
+import { drawGoalkeeper, drawShadow, drawSoccerBall } from '../lib/gameArt';
 
 const W = 640;
 const H = 360;
 const GOAL = { left: 170, right: 470, top: 80, ground: 255 };
 const SPOT = { x: 320, y: 322 };
 const KICKS = 5;
-const ZONES = [215, 320, 425]; // canto esquerdo, meio, canto direito
+const ZONES = [235, 320, 405]; // de onde o goleiro mergulha: esquerda, meio, direita
+
+/** Mesma transformação do drawGoalkeeper: ponto do corpo (pés na origem) → tela. */
+function toWorld([px, py], x, dive, lift) {
+  const a = dive * 1.15;
+  const y0 = GOAL.ground - Math.abs(dive) * 28 + lift;
+  const ry = py + 56; // gira em torno do quadril (0, -56)
+  return [x + px * Math.cos(a) - ry * Math.sin(a), y0 - 56 + px * Math.sin(a) + ry * Math.cos(a)];
+}
+
+const distToSegment = ([x, y], [ax, ay], [bx, by]) => {
+  const dx = bx - ax;
+  const dy = by - ay;
+  const k = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy)));
+  return Math.hypot(x - (ax + k * dx), y - (ay + k * dy));
+};
+
+/** A bola encosta no goleiro na pose final? (corpo e braços como segmentos grossos) */
+function isSaved(target, zone) {
+  const dive = [-1, 0, 1][zone];
+  const lift = zone === 1 ? -18 : 0; // no meio ele dá um pulinho
+  const x = ZONES[zone];
+  const w = (pt) => toWorld(pt, x, dive, lift);
+  const arms = dive
+    ? [[[-18, -100], [-14, -158]], [[18, -100], [14, -158]]]
+    : [[[-18, -100], [-48, -76]], [[18, -100], [48, -76]]];
+  const ball = [target.x, target.y];
+  if (distToSegment(ball, w([0, 0]), w([0, -138])) < 26) return true; // corpo e cabeça
+  return arms.some(([s, h]) => distToSegment(ball, w(s), w(h)) < 20); // braços e luvas
+}
 
 /** Pênaltis: a mira passeia pelo gol; espaço/clique/toque chuta. 5 cobranças. */
 export default function GamePenalti() {
@@ -44,43 +74,17 @@ export default function GamePenalti() {
       const target = { ...aim };
       // goleiro escolhe um canto; às vezes "lê" a cobrança
       const ballZone = target.x < 270 ? 0 : target.x > 370 ? 2 : 1;
-      const zone = Math.random() < 0.38 ? ballZone : Math.floor(Math.random() * 3);
+      const zone = Math.random() < 0.45 ? ballZone : Math.floor(Math.random() * 3);
       const keeperX = ZONES[zone];
       const out = target.x < GOAL.left + 6 || target.x > GOAL.right - 6 || target.y < GOAL.top + 6;
-      const reachTop = zone === 1 ? 150 : 115;
-      const saved = !out && Math.abs(target.x - keeperX) < 58 && target.y > reachTop;
+      const saved = !out && isSaved(target, zone);
       shot = { target, keeperX, zone, start: time, outcome: out ? 'wide' : saved ? 'saved' : 'goal' };
       state = 'shot';
     };
 
-    const drawKeeper = (p, x, lean) => {
-      ctx.save();
-      ctx.translate(x, GOAL.ground);
-      ctx.rotate(lean);
-      ctx.fillStyle = p.busy;
-      ctx.fillRect(-14, -62, 28, 40); // tronco
-      ctx.fillStyle = p.dim;
-      ctx.fillRect(-12, -22, 9, 22); // pernas
-      ctx.fillRect(3, -22, 9, 22);
-      ctx.fillStyle = p.busy;
-      ctx.fillRect(-34, -60, 20, 8); // braços abertos
-      ctx.fillRect(14, -60, 20, 8);
-      ctx.fillStyle = p.muted;
-      ctx.beginPath();
-      ctx.arc(0, -74, 11, 0, Math.PI * 2); // cabeça
-      ctx.fill();
-      ctx.restore();
-    };
-
-    const drawBall = (p, x, y, r) => {
-      ctx.fillStyle = p.text;
-      ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = p.bg;
-      ctx.beginPath();
-      ctx.arc(x - r * 0.25, y - r * 0.2, r * 0.32, 0, Math.PI * 2);
-      ctx.fill();
+    const keeper = (p, x, dive, bounce = 0) => {
+      drawShadow(ctx, x + dive * 40, GOAL.ground + 2, 30 + Math.abs(dive) * 30, 0.3);
+      drawGoalkeeper(ctx, p.art, x, GOAL.ground, dive, bounce);
     };
 
     const frame = (dt) => {
@@ -131,11 +135,12 @@ export default function GamePenalti() {
       if (state === 'aim') {
         // mira em curva de Lissajous: precisa de timing, não de pontaria parada
         aim = {
-          x: 320 + Math.sin(time / 520) * 172,
-          y: 168 + Math.sin(time / 330 + 1) * 92,
+          x: 320 + Math.sin(time / 520) * 162,
+          y: 170 + Math.sin(time / 330 + 1) * 84,
         };
-        drawKeeper(p, 320 + Math.sin(time / 300) * 12, 0);
-        drawBall(p, SPOT.x, SPOT.y, 11);
+        keeper(p, 320 + Math.sin(time / 300) * 12, 0, Math.abs(Math.sin(time / 180)) * -3);
+        drawShadow(ctx, SPOT.x, SPOT.y + 15, 15);
+        drawSoccerBall(ctx, p.art, SPOT.x, SPOT.y, 16);
         ctx.strokeStyle = p.accent;
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -150,12 +155,14 @@ export default function GamePenalti() {
       } else if (state === 'shot' || state === 'result') {
         const k = Math.min(1, (time - shot.start) / 480);
         const ease = 1 - (1 - k) ** 3;
-        const lean = [-1.1, 0, 1.1][shot.zone] * ease;
+        const dive = [-1, 0, 1][shot.zone] * ease;
         const keeperX = 320 + (shot.keeperX - 320) * ease;
-        drawKeeper(p, keeperX, lean);
+        keeper(p, keeperX, shot.zone === 1 ? 0 : dive, shot.zone === 1 ? -ease * 18 : 0);
         const bx = SPOT.x + (shot.target.x - SPOT.x) * ease;
         const by = SPOT.y + (shot.target.y - SPOT.y) * ease - Math.sin(ease * Math.PI) * 30;
-        drawBall(p, bx, by, 11 - ease * 4);
+        const groundY = SPOT.y + 12 + (GOAL.ground - SPOT.y - 12) * ease;
+        drawShadow(ctx, bx, groundY, 13 - ease * 5, 0.3 - ease * 0.15);
+        drawSoccerBall(ctx, p.art, bx, by, 16 - ease * 6, ease * 9);
         if (k >= 1 && state === 'shot') {
           state = 'result';
           kicks += 1;
@@ -175,7 +182,7 @@ export default function GamePenalti() {
           }
         }
       } else if (state === 'over') {
-        drawKeeper(p, 320, 0);
+        keeper(p, 320, 0);
         ctx.font = `bold 28px ${p.font}`;
         ctx.fillStyle = p.accent;
         ctx.fillText(text.end(goals), W / 2, 46);

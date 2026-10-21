@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { getBest, saveBest, useGameCanvas } from '../lib/useGameCanvas';
+import { SPRITES, drawSprite, spriteColors } from '../lib/gameArt';
 
 const W = 640;
 const H = 200;
@@ -71,10 +72,20 @@ export default function GameGaloRun() {
       });
     };
 
+    // obstáculos: cone, troféu, escudinho rosa e juiz (o mais alto)
+    const KINDS = [
+      { kind: 'cone', weight: 3 },
+      { kind: 'trophy', weight: 3 },
+      { kind: 'crest', weight: 3 },
+      { kind: 'referee', weight: 2 },
+    ];
     const spawn = () => {
-      const tall = Math.random() < 0.3;
-      const double = !tall && Math.random() < 0.3;
-      obstacles.push({ x: W + 20, w: double ? 34 : 16, h: tall ? 40 : 26, tall });
+      let roll = Math.random() * KINDS.reduce((a, k) => a + k.weight, 0);
+      const { kind } = KINDS.find((k) => (roll -= k.weight) < 0);
+      const sprite = SPRITES[kind];
+      const w = sprite ? sprite[0].length * PX : 16;
+      const h = sprite ? sprite.length * PX : 26;
+      obstacles.push({ x: W + 20, w, h, kind });
       nextGap = 260 + Math.random() * 320 + speed * 400;
     };
 
@@ -119,25 +130,19 @@ export default function GameGaloRun() {
       ctx.fillStyle = p.border;
       for (let x = -groundOffset; x < W; x += 24) ctx.fillRect(x, GROUND + 8, 10, 2);
 
-      // obstáculos: cones (baixos) e barreiras (altas)
+      const colors = spriteColors(p.art, p);
       obstacles.forEach((o) => {
-        if (o.tall) {
+        if (o.kind === 'cone') {
           ctx.fillStyle = p.warn;
-          ctx.fillRect(o.x, GROUND - o.h, 5, o.h);
-          ctx.fillRect(o.x + o.w - 5, GROUND - o.h, 5, o.h);
+          ctx.beginPath();
+          ctx.moveTo(o.x, GROUND);
+          ctx.lineTo(o.x + 8, GROUND - o.h);
+          ctx.lineTo(o.x + 16, GROUND);
+          ctx.fill();
           ctx.fillStyle = p.text;
-          ctx.fillRect(o.x - 3, GROUND - o.h, o.w + 6, 8);
+          ctx.fillRect(o.x + 4, GROUND - o.h * 0.5, 8, 4);
         } else {
-          for (let cx = o.x; cx < o.x + o.w - 4; cx += 18) {
-            ctx.fillStyle = p.warn;
-            ctx.beginPath();
-            ctx.moveTo(cx, GROUND);
-            ctx.lineTo(cx + 8, GROUND - o.h);
-            ctx.lineTo(cx + 16, GROUND);
-            ctx.fill();
-            ctx.fillStyle = p.text;
-            ctx.fillRect(cx + 4, GROUND - o.h * 0.5, 8, 4);
-          }
+          drawSprite(ctx, SPRITES[o.kind], colors, o.x, GROUND - o.h, PX);
         }
       });
 

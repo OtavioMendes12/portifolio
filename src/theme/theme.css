@@ -31,6 +31,24 @@
 
   --shadow: 0 24px 64px rgb(0 0 0 / 0.45);
   --transition: 160ms ease;
+
+  /* arte dos jogos (cores realistas, iguais em todos os temas) */
+  --game-skin: #d9a066;
+  --game-skin-shade: #b9824f;
+  --game-hair: #2b1d14;
+  --game-keeper: #c4f53a;
+  --game-keeper-shade: #8fbf1f;
+  --game-keeper-shorts: #1f2937;
+  --game-glove: #f4f4f4;
+  --game-glove-palm: #ef4444;
+  --game-boot: #111111;
+  --game-ball: #f7f7f7;
+  --game-ball-ink: #1b1b1b;
+  --game-pink: #ff6fb5;
+  --game-gold: #f5c518;
+  --game-gold-shade: #b8860b;
+  --game-ref: #2b2b2b;
+  --game-card: #facc15;
 }
 
 @media (max-width: 768px) {

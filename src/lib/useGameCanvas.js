@@ -19,6 +19,11 @@ export function readPalette(el) {
     info: get('--info'),
     busy: get('--busy'),
     font: get('--font-mono'),
+    art: Object.fromEntries(
+      ['skin', 'skin-shade', 'hair', 'keeper', 'keeper-shade', 'keeper-shorts', 'glove', 'glove-palm', 'boot', 'ball', 'ball-ink', 'pink', 'gold', 'gold-shade', 'ref', 'card'].map(
+        (n) => [n.replace(/-(\w)/g, (_, c) => c.toUpperCase()), get(`--game-${n}`)],
+      ),
+    ),
   };
 }
 
