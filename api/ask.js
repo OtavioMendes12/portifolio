@@ -1,17 +1,16 @@
 /*
  * POST /api/ask  { messages: [{ role: 'user'|'assistant', content: string }] }
- * Chat "pergunte sobre mim" com o Claude, em streaming (NDJSON, um evento por linha):
+ * Chat "pergunte sobre mim" com a OpenAI, em streaming (NDJSON, um evento por linha):
  *   {t:'text', v}  pedaço da resposta
- *   {t:'reset'}    o modelo recusou no meio e o fallback assumiu: descarte o parcial
  *   {t:'done'} | {t:'refusal'} | {t:'error', code}
- * ANTHROPIC_API_KEY fica só no servidor.
+ * OPENAI_API_KEY fica só no servidor.
  */
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 import { buildSystemPrompt } from './_lib/persona.js';
 import { clientIp, corsHeaders, guard, json } from './_lib/http.js';
 import { rateLimit } from './_lib/rateLimit.js';
 
-const MODEL = 'claude-opus-5-5';
+const MODEL = process.env.OPENAI_MODEL || 'gpt-6-luna';
 const MAX_QUESTION = 500;
 const MAX_TURNS = 8; // pares pergunta/resposta mantidos no histórico
 const MAX_ANSWER_CHARS = 4000;
@@ -32,16 +31,16 @@ function sanitize(raw) {
 }
 
 const errorCode = (err) => {
-  if (err instanceof Anthropic.AuthenticationError) return 'not_configured';
-  if (err instanceof Anthropic.RateLimitError) return 'busy';
-  if (err instanceof Anthropic.APIError) return 'upstream';
+  if (err instanceof OpenAI.AuthenticationError) return 'not_configured';
+  if (err instanceof OpenAI.RateLimitError) return 'busy';
+  if (err instanceof OpenAI.APIError) return 'upstream';
   return 'upstream';
 };
 
 export async function POST(request) {
   const blocked = guard(request);
   if (blocked) return blocked;
-  if (!process.env.ANTHROPIC_API_KEY) return json(request, { error: 'not_configured' });
+  if (!process.env.OPENAI_API_KEY) return json(request, { error: 'not_configured' });
 
   let body;
   try {
@@ -64,41 +63,63 @@ export async function POST(request) {
     return json(request, { error: 'rate_limited', retryAfter }, { status: 429, headers: { 'Retry-After': String(retryAfter) } });
   }
 
-  client ??= new Anthropic();
-  const stream = client.beta.messages.stream({
-    model: MODEL,
-    max_tokens: 2048, // respostas curtas por instrução; o teto limita custo num endpoint público
-    betas: ['server-side-fallback-2026-07-01'],
-    fallbacks: 'default', // recusa de um classificador → o servidor tenta o modelo recomendado
-    output_config: { effort: 'low' }, // chat simples: menos tokens e menos latência
-    system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
-    messages,
-  });
+  client ??= new OpenAI({ maxRetries: 0, timeout: 50_000 });
+  const abort = new AbortController();
+  let cancelled = false;
+  const onAbort = () => abort.abort();
+  request.signal.addEventListener('abort', onAbort, { once: true });
+  if (request.signal.aborted) abort.abort();
 
   const encoder = new TextEncoder();
   const out = new ReadableStream({
     async start(controller) {
-      const send = (event) => controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
+      const send = (event) => {
+        if (!cancelled) controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
+      };
+      let terminal = false;
+      let refused = false;
       try {
+        const stream = await client.responses.create({
+          model: MODEL,
+          instructions: SYSTEM,
+          input: messages,
+          max_output_tokens: 2048,
+          store: false,
+          stream: true,
+        }, { signal: abort.signal });
         for await (const event of stream) {
-          if (event.type === 'content_block_start' && event.content_block.type === 'fallback') {
-            send({ t: 'reset' });
-          } else if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-            send({ t: 'text', v: event.delta.text });
+          if (event.type === 'response.output_text.delta') {
+            send({ t: 'text', v: event.delta });
+          } else if (event.type === 'response.refusal.delta') {
+            refused = true;
+          } else if (event.type === 'response.completed' || event.type === 'response.incomplete') {
+            const reason = event.response.incomplete_details?.reason;
+            if (refused || reason === 'content_filter') send({ t: 'refusal' });
+            else if (event.type === 'response.completed' || reason === 'max_output_tokens') {
+              send({ t: 'done', truncated: reason === 'max_output_tokens' });
+            } else send({ t: 'error', code: 'upstream' });
+            terminal = true;
+            break;
+          } else if (event.type === 'response.failed' || event.type === 'error') {
+            send({ t: 'error', code: 'upstream' });
+            terminal = true;
+            break;
           }
         }
-        const final = await stream.finalMessage();
-        send(final.stop_reason === 'refusal' ? { t: 'refusal' } : { t: 'done', truncated: final.stop_reason === 'max_tokens' });
+        if (!terminal && !cancelled) send({ t: 'error', code: 'upstream' });
       } catch (err) {
-        if (!(err instanceof Anthropic.APIUserAbortError)) {
-          console.error('[ask]', err);
+        if (!cancelled && !request.signal.aborted) {
+          console.error('[ask]', { status: err.status, code: err.code, name: err.name });
           send({ t: 'error', code: errorCode(err) });
         }
+      } finally {
+        request.signal.removeEventListener('abort', onAbort);
+        if (!cancelled) controller.close();
       }
-      controller.close();
     },
     cancel() {
-      stream.abort(); // visitante saiu/limpou a tela: para de gerar (e de gastar)
+      cancelled = true;
+      abort.abort();
     },
   });
 

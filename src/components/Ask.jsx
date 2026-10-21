@@ -66,7 +66,7 @@ function Answer({ question, history, chat }) {
   const visible = useTypewriter(state.text, reduced);
 
   if (state.status === 'error') {
-    if (state.code === 'not_configured') return <NotConfigured name={t('pergunta.name')} envVar="ANTHROPIC_API_KEY" />;
+    if (state.code === 'not_configured') return <NotConfigured name={t('pergunta.name')} envVar="OPENAI_API_KEY" />;
     const minutes = Math.max(1, Math.ceil((state.retryAfter ?? 60) / 60));
     return (
       <p className="out-error">

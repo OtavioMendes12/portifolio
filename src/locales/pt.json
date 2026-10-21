@@ -114,7 +114,7 @@
       "desc": "Tempo de código da semana · --agora ou --cards"
     },
     "spotify": {
-      "desc": "O que estou ouvindo agora + as últimas 10 (Spotify)"
+      "desc": "Minha playlist no Spotify"
     },
     "pergunta": {
       "desc": "Pergunte qualquer coisa sobre mim (IA) · sozinho entra no modo conversa"
@@ -364,6 +364,7 @@
     "modes": "Modos:"
   },
   "spotify": {
+    "playlist": "Playlist de recomendações no Spotify",
     "loading": "consultando o Last.fm…",
     "nowPlaying": "tocando agora",
     "silence": "Nada tocando agora.",

@@ -16,26 +16,23 @@ npm run env:check
 
 ---
 
-## 1. Chat de IA (`pergunta`), Anthropic
+## 1. Chat de IA (`pergunta`), OpenAI
 
-1. Acesse **console.anthropic.com**, depois *API Keys → Create Key*, e copie a chave (começa com `sk-ant-`).
-2. Ainda no console, defina um **limite de gasto mensal** (*Billing → Limits*). O endpoint é público: o site já limita 10 perguntas a cada 10 min por IP, mas o teto no console é a garantia final.
-3. Variável: `ANTHROPIC_API_KEY` (só servidor).
+1. Acesse https://platform.openai.com/api-keys e crie uma chave para o projeto.
+2. Configure o faturamento/créditos da API no painel da OpenAI.
+3. Na Vercel, adicione `OPENAI_API_KEY` em Settings → Environment Variables (Production e, se desejado, Preview).
+4. Publique o código atualizado e faça um novo deploy para aplicar as variáveis.
+5. Opcional: configure `OPENAI_MODEL` para usar outro modelo disponível na sua conta. Padrão: `gpt-6-luna`.
 
-## 2. Spotify (`spotify` e a linha "Ouvindo agora")
+O chat usa a Responses API com streaming, `store: false` e limite de 2048 tokens de saída.
+O limite de uso local continua sendo 10 perguntas por IP em 10 minutos e 300 por hora por instância.
+A chave fica apenas no servidor; nunca use o prefixo `VITE_`.
 
-1. Em **developer.spotify.com/dashboard**, clique em *Create app*:
-   - *Redirect URI*: `http://127.0.0.1:8888/callback`
-   - *APIs used*: marque **Web API**
-2. Copie o **Client ID** e o **Client Secret** do app.
-3. Gere o refresh token (uma vez só), na pasta do projeto:
-   ```bash
-   SPOTIFY_CLIENT_ID=seu_id SPOTIFY_CLIENT_SECRET=seu_secret node scripts/spotify-auth.mjs
-   ```
-   Abra o link que aparecer, autorize com a sua conta e copie o `SPOTIFY_REFRESH_TOKEN=...` impresso no terminal.
-4. Variáveis (só servidor): `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`.
+## 2. Spotify (`spotify`)
 
-O token só pede permissão para **ler** o que está tocando e as últimas músicas. Ele não mexe na sua conta.
+O comando incorpora uma playlist pública pelo player do Spotify, sem API keys.
+O ID da playlist fica em `src/config/spotify.js`.
+Não é necessário configurar `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` ou `SPOTIFY_REFRESH_TOKEN` na Vercel.
 
 ---
 
@@ -58,20 +55,17 @@ npm run dev                  # o dev server já lê o .env.local para as funçõ
 **Ou pela CLI** (`npm i -g vercel`, depois `vercel link` na pasta do projeto):
 
 ```bash
-vercel env add ANTHROPIC_API_KEY production
-vercel env add SPOTIFY_CLIENT_ID production
-vercel env add SPOTIFY_CLIENT_SECRET production
-vercel env add SPOTIFY_REFRESH_TOKEN production
+vercel env add OPENAI_API_KEY production
 vercel --prod   # novo deploy para valer
 ```
 
 **Conferir depois do deploy:**
 
 ```bash
-curl -s https://SEU-DOMINIO/api/spotify   # não deve responder {"error":"not_configured"}
+curl -s https://SEU-DOMINIO/api/github?view=stats   # não deve responder {"error":"not_configured"}
 ```
 
-No site, `pergunta oi` deve responder e `spotify` deve mostrar suas músicas.
+No site, `pergunta oi` deve responder e `spotify` deve mostrar o player da playlist.
 
 ---
 
@@ -79,13 +73,11 @@ No site, `pergunta oi` deve responder e `spotify` deve mostrar suas músicas.
 
 | Variável | Onde | Para quê |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | só servidor | chat de IA (`pergunta`) |
-| `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` / `SPOTIFY_REFRESH_TOKEN` | só servidor | `spotify` e "Ouvindo agora" |
+| `OPENAI_API_KEY` | só servidor | chat de IA (`pergunta`) |
 | `GITHUB_TOKEN` | só servidor | `stats` (gráfico de contribuições). Token *fine-grained* só de leitura |
 | `WAKATIME_API_KEY` | só servidor | `wakatime` e "Codando agora" |
 | `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` | público | `guestbook` e contador de visitas (rode `supabase/schema.sql` antes) |
 | `VITE_EMAILJS_*` | público | formulário do `contato` |
-| `VITE_LASTFM_API_KEY` | público | alternativa ao Spotify, via Last.fm |
 
 Sem uma variável, a integração mostra "integração não configurada" e o resto do site funciona normalmente.
 

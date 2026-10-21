@@ -15,11 +15,11 @@
     "env:check": "node scripts/check-env.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.137.0",
     "@emailjs/browser": "^5.0.3",
     "@react-pdf-viewer/core": "^3.12.0",
     "@supabase/supabase-js": "^2.118.0",
     "i18next": "^26.5.3",
+    "openai": "^7.39.0",
     "pdfjs-dist": "^3.11.174",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

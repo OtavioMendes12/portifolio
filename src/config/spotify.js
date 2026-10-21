@@ -1,2 +1,2 @@
-// Perfil público do Spotify (link exibido no comando `spotify`).
-export const SPOTIFY_PROFILE_URL = 'https://open.spotify.com/user/12173057909';
+// Playlist pública incorporada; não requer credenciais da API.
+export const SPOTIFY_PLAYLIST_ID = '2LtITBR0Bbru9W5liTJjid';

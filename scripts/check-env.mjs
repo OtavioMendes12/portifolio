@@ -12,13 +12,11 @@ for (const file of ['.env', '.env.local']) {
 }
 
 const GROUPS = [
-  ['Chat de IA (pergunta)', ['ANTHROPIC_API_KEY']],
-  ['Spotify', ['SPOTIFY_CLIENT_ID', 'SPOTIFY_CLIENT_SECRET', 'SPOTIFY_REFRESH_TOKEN']],
+  ['Chat de IA (pergunta)', ['OPENAI_API_KEY']],
   ['GitHub stats', ['GITHUB_TOKEN']],
   ['WakaTime', ['WAKATIME_API_KEY']],
   ['Supabase (guestbook, visitas)', ['VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY']],
   ['EmailJS (contato)', ['VITE_EMAILJS_SERVICE_ID', 'VITE_EMAILJS_TEMPLATE_ID_FOR_ME', 'VITE_EMAILJS_PUBLIC_KEY']],
-  ['Last.fm (alternativa)', ['VITE_LASTFM_API_KEY']],
 ];
 
 for (const [name, keys] of GROUPS) {
@@ -27,7 +25,7 @@ for (const [name, keys] of GROUPS) {
 }
 
 // segredo com prefixo VITE_ vazaria para o navegador
-const leaked = Object.keys(env).filter((k) => /^VITE_.*(SECRET|TOKEN|ANTHROPIC|SPOTIFY_CLIENT_SECRET|WAKATIME|GITHUB)/.test(k) && env[k]);
+const leaked = Object.keys(env).filter((k) => /^VITE_.*(SECRET|TOKEN|ANTHROPIC|OPENAI|SPOTIFY_CLIENT_SECRET|WAKATIME|GITHUB)/.test(k) && env[k]);
 if (leaked.length) {
   console.log(`\n⚠ Estas variáveis parecem segredo mas começam com VITE_ (iriam para o navegador): ${leaked.join(', ')}`);
   process.exitCode = 1;
