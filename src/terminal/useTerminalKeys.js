@@ -20,7 +20,9 @@ export function useTerminalKeys({ history, onSubmit, onTab, onClear, disabled })
 
     if (!inTerminal) {
       // Digitou fora de qualquer campo: manda a tecla para o terminal.
-      if (!isEditable(e.target) && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) focusInput();
+      // (jogos e outros elementos marcados com data-keep-focus ficam com as teclas)
+      const owned = e.target.closest?.('[data-keep-focus]');
+      if (!owned && !isEditable(e.target) && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) focusInput();
       return;
     }
     if (e.isComposing) return;

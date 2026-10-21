@@ -118,6 +118,12 @@
     },
     "pergunta": {
       "desc": "Pergunte qualquer coisa sobre mim (IA) · sozinho entra no modo conversa"
+    },
+    "guestbook": {
+      "desc": "Livro de visitas: deixe um recado"
+    },
+    "jogo": {
+      "desc": "Jogos: --penalti ou --galo-run"
     }
   },
   "help": {
@@ -389,6 +395,48 @@
       "network": "Sem conexão com o servidor. Tente de novo.",
       "bad_request": "Não entendi a pergunta. Tente reformular.",
       "upstream": "Não consegui responder agora. Tente de novo ou use o comando contato."
+    }
+  },
+  "guestbook": {
+    "title": "Livro de visitas",
+    "loading": "abrindo o livro…",
+    "empty": "Ninguém assinou ainda. Seja a primeira pessoa!",
+    "sign": "Deixe seu recado:",
+    "name": "Nome",
+    "message": "Mensagem",
+    "send": "assinar",
+    "sending": "enviando…",
+    "sent": "Recado publicado. Valeu pela visita!",
+    "errors": {
+      "name": "Nome entre 2 e {{max}} caracteres.",
+      "message": "Mensagem entre 2 e {{max}} caracteres.",
+      "blocked": "Vamos manter o livro de visitas amigável: tire os palavrões.",
+      "rate_limited": "Calma! Espere um minuto antes de assinar de novo.",
+      "failed": "Não consegui publicar agora. Tente de novo em instantes."
+    }
+  },
+  "jogo": {
+    "title": "Jogos",
+    "best": "recorde: {{best}}",
+    "again": "espaço ou toque para jogar de novo",
+    "penalti": {
+      "desc": "cobre 5 pênaltis contra o goleiro",
+      "label": "Jogo de pênaltis. Espaço ou toque para chutar.",
+      "controls": "Espaço, Enter ou toque para chutar quando a mira estiver no lugar certo.",
+      "help": "espaço ou toque para chutar",
+      "goal": "GOOOL!",
+      "saved": "DEFENDEU!",
+      "wide": "PRA FORA!",
+      "score": "Gols: {{goals}} de {{kicks}} · {{total}} cobranças",
+      "end": "Fim: {{goals}} de {{total}} gols"
+    },
+    "run": {
+      "desc": "o galo corre e pula os obstáculos",
+      "label": "Galo Run. Espaço, seta para cima ou toque para pular.",
+      "controls": "Espaço, ↑ ou toque para pular. A velocidade aumenta com o tempo.",
+      "start": "espaço ou toque para começar",
+      "over": "Fim de jogo! Espaço ou toque para recomeçar",
+      "score": "pontos {{score}}"
     }
   }
 }

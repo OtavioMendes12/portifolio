@@ -141,3 +141,18 @@
     border-radius: 0;
   }
 }
+
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.app .react-terminal-wrapper {
+  position: relative;
+  z-index: 1;
+}

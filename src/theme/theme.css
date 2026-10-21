@@ -148,7 +148,7 @@
   --accent-soft: rgb(66 201 32 / 0.12);
   --page-pattern: none;
   --page-wallpaper: none;
-  --terminal-glass: var(--bg-terminal);
+  --terminal-glass: rgb(0 0 0 / 0.86);
 }
 
 /* ---------- base ---------- */

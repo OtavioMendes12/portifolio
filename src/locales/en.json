@@ -118,6 +118,12 @@
     },
     "pergunta": {
       "desc": "Ask anything about me (AI) · alone it starts chat mode"
+    },
+    "guestbook": {
+      "desc": "Guestbook: leave a message"
+    },
+    "jogo": {
+      "desc": "Games: --penalti or --galo-run"
     }
   },
   "help": {
@@ -389,6 +395,48 @@
       "network": "No connection to the server. Try again.",
       "bad_request": "I didn't get the question. Try rephrasing it.",
       "upstream": "I couldn't answer right now. Try again or use the contact command."
+    }
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "loading": "opening the book…",
+    "empty": "Nobody has signed yet. Be the first!",
+    "sign": "Leave a message:",
+    "name": "Name",
+    "message": "Message",
+    "send": "sign",
+    "sending": "sending…",
+    "sent": "Message posted. Thanks for stopping by!",
+    "errors": {
+      "name": "Name must be 2 to {{max}} characters.",
+      "message": "Message must be 2 to {{max}} characters.",
+      "blocked": "Let's keep the guestbook friendly: please remove the swear words.",
+      "rate_limited": "Easy! Wait a minute before signing again.",
+      "failed": "I couldn't post it right now. Try again in a moment."
+    }
+  },
+  "jogo": {
+    "title": "Games",
+    "best": "best: {{best}}",
+    "again": "space or tap to play again",
+    "penalti": {
+      "desc": "take 5 penalties against the keeper",
+      "label": "Penalty game. Space or tap to shoot.",
+      "controls": "Space, Enter or tap to shoot when the aim is in the right spot.",
+      "help": "space or tap to shoot",
+      "goal": "GOAL!",
+      "saved": "SAVED!",
+      "wide": "WIDE!",
+      "score": "Goals: {{goals}} of {{kicks}} · {{total}} kicks",
+      "end": "Final: {{goals}} of {{total}} goals"
+    },
+    "run": {
+      "desc": "the rooster runs and jumps over obstacles",
+      "label": "Galo Run. Space, up arrow or tap to jump.",
+      "controls": "Space, ↑ or tap to jump. It speeds up over time.",
+      "start": "space or tap to start",
+      "over": "Game over! Space or tap to restart",
+      "score": "score {{score}}"
     }
   }
 }

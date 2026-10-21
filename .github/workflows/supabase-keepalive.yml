@@ -1,0 +1,28 @@
+# Projetos free do Supabase pausam após ~7 dias sem uso. Este ping a cada 12h mantém o banco acordado.
+# Configure os secrets do repositório: SUPABASE_URL e SUPABASE_ANON_KEY.
+name: Supabase keepalive
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ping no Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "Secrets SUPABASE_URL/SUPABASE_ANON_KEY não configurados; nada a fazer."
+            exit 0
+          fi
+          status=$(curl -s -o /dev/null -w "%{http_code}" \
+            "$SUPABASE_URL/rest/v1/guestbook?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" -H "Authorization: Bearer $SUPABASE_ANON_KEY")
+          echo "HTTP $status"
+          test "$status" -lt 400

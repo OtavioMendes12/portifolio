@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Terminal from 'react-terminal-ui';
@@ -6,7 +6,7 @@ import { registry } from './commands';
 import { LANGS } from './i18n';
 import { useTheme } from './theme/themeContext';
 import { storage } from './lib/storage';
-import { prefersReducedMotion } from './lib/useReducedMotion';
+import { prefersReducedMotion, useReducedMotion } from './lib/useReducedMotion';
 import { parseCommand } from './terminal/parser';
 import { createHistory } from './terminal/history';
 import { complete } from './terminal/autocomplete';
@@ -20,6 +20,8 @@ import Boot from './components/Boot';
 import Header from './components/Header';
 import Entry from './components/Entry';
 import './components/ui.css';
+
+const MatrixRain = lazy(() => import('./components/MatrixRain.jsx'));
 import './App.css';
 
 const MAX_ENTRIES = 150;
@@ -32,6 +34,7 @@ const shouldBoot = () => !storage.get('booted', false, 'session') && !prefersRed
 export default function App() {
   const { t, i18n } = useTranslation();
   const themeApi = useTheme();
+  const reducedMotion = useReducedMotion();
   const [searchParams] = useSearchParams();
 
   const [booting, setBooting] = useState(shouldBoot);
@@ -203,6 +206,11 @@ export default function App() {
 
   return (
     <TerminalContext.Provider value={ctx}>
+      {themeApi.theme === 'matrix' && !reducedMotion && (
+        <Suspense fallback={null}>
+          <MatrixRain />
+        </Suspense>
+      )}
       <main className={`app${maximized ? ' app--max' : ''}${booting ? ' is-booting' : ''}`}>
         <Terminal
           name={t('ui.title')}

@@ -98,6 +98,17 @@ export const commands = [
     component: lazy(() => import('./components/Spotify.jsx')),
   },
   {
+    name: 'guestbook',
+    aliases: ['book', 'livro', 'visitas'],
+    component: lazy(() => import('./components/Guestbook.jsx')),
+  },
+  {
+    name: 'jogo',
+    aliases: ['game', 'jogar'],
+    component: lazy(() => import('./components/Jogo.jsx')),
+    flags: [{ name: 'penalti', aliases: ['penalty', 'penaltis'] }, { name: 'galo-run', aliases: ['run', 'galorun'] }],
+  },
+  {
     name: 'titulos',
     aliases: ['trophies', 'titles'],
     component: lazy(() => import('./components/Titles.jsx')),
