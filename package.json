@@ -14,6 +14,7 @@
     "contrast": "node scripts/check-contrast.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.137.0",
     "@emailjs/browser": "^5.0.3",
     "@react-pdf-viewer/core": "^3.12.0",
     "@supabase/supabase-js": "^2.118.0",

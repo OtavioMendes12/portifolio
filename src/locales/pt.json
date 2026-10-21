@@ -15,7 +15,8 @@
     "copy": "copiar",
     "copied": "copiado!",
     "notConfigured": "integração não configurada",
-    "notConfiguredHint": "Configure {{env}} para ativar."
+    "notConfiguredHint": "Configure {{env}} para ativar.",
+    "chatPrompt": "pergunta>"
   },
   "themes": {
     "galo": "Galo",
@@ -114,6 +115,9 @@
     },
     "spotify": {
       "desc": "O que estou ouvindo agora + as últimas 10 (via Last.fm)"
+    },
+    "pergunta": {
+      "desc": "Pergunte qualquer coisa sobre mim (IA) · sozinho entra no modo conversa"
     }
   },
   "help": {
@@ -345,5 +349,31 @@
     "nowPlaying": "tocando agora",
     "silence": "Nada tocando agora.",
     "recent": "Últimas reproduções"
+  },
+  "pergunta": {
+    "name": "Chat de IA",
+    "who": "otavio (IA) ›",
+    "thinking": "pensando…",
+    "usage": "uso: {{cmd}} <sua pergunta>",
+    "enter": "Modo conversa ligado: pergunte o que quiser sobre minha carreira, projetos ou o Galo.",
+    "try": "Por exemplo:",
+    "howToExit": "Digite sair para voltar ao terminal. As respostas são geradas por IA a partir dos dados deste site.",
+    "exit": "Modo conversa encerrado. De volta ao terminal.",
+    "truncated": "(resposta cortada; pergunte de novo de um jeito mais específico)",
+    "examples": {
+      "tcc": "Sobre o que é o seu TCC?",
+      "stack": "Quais tecnologias você mais usa no back-end?",
+      "galo": "Desde quando você torce pro Galo?",
+      "xp": "O que você fez na Busca Passagens?"
+    },
+    "errors": {
+      "rate_limited": "Muitas perguntas seguidas. Tente de novo em {{minutes}} min.",
+      "too_long": "Pergunta longa demais (máximo de {{max}} caracteres).",
+      "refusal": "Não posso responder isso. Pergunte sobre minha carreira, projetos ou o Galo.",
+      "busy": "A IA está ocupada agora. Tente de novo em instantes.",
+      "network": "Sem conexão com o servidor. Tente de novo.",
+      "bad_request": "Não entendi a pergunta. Tente reformular.",
+      "upstream": "Não consegui responder agora. Tente de novo ou use o comando contato."
+    }
   }
 }

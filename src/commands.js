@@ -59,6 +59,17 @@ export const commands = [
     component: lazy(() => import('./components/Contact.jsx')),
   },
   {
+    name: 'pergunta',
+    aliases: ['ask', 'chat'],
+    component: lazy(() => import('./components/Ask.jsx')),
+    // com texto: pergunta única; sem texto: entra no modo conversa (sai com `sair`)
+    run: ({ rest, chat }) => {
+      if (rest) return { question: rest };
+      chat.enter();
+      return { mode: 'enter' };
+    },
+  },
+  {
     name: 'github',
     aliases: ['git', 'repos'],
     component: lazy(() => import('./components/GitHub.jsx')),

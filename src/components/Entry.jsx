@@ -37,7 +37,7 @@ function Entry({ entry }) {
   return (
     <section className="entry" data-entry-id={entry.id}>
       <p className="echo">
-        <span className="echo-prompt">{t('ui.prompt')}</span> <span className="echo-input">{entry.input}</span>
+        <span className="echo-prompt">{entry.chat ? t('ui.chatPrompt') : t('ui.prompt')}</span> <span className="echo-input">{entry.input}</span>
       </p>
       {entry.notFound && <NotFound {...entry.notFound} />}
       {Output && (
