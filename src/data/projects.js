@@ -31,6 +31,36 @@ export const projects = [
     featured: true,
   },
   {
+    id: 'payment',
+    name: { pt: 'Payment Platform', en: 'Payment Platform' },
+    description: {
+      pt: 'Plataforma de pagamentos orientada a eventos (modular monolith): idempotência, Transactional Outbox e Inbox Pattern sobre RabbitMQ at-least-once, PostgreSQL como fonte de verdade e ciclo PENDING → PROCESSING → APPROVED/DECLINED → REFUNDED.',
+      en: 'Event-driven payment platform (modular monolith): idempotency, Transactional Outbox and Inbox Pattern over at-least-once RabbitMQ, PostgreSQL as the source of truth and a PENDING → PROCESSING → APPROVED/DECLINED → REFUNDED lifecycle.',
+    },
+    stack: ['Java 21', 'Spring Boot', 'PostgreSQL', 'RabbitMQ', 'Redis', 'Testcontainers', 'OpenTelemetry', 'ArchUnit'],
+    tags: ['java', 'spring', 'arquitetura', 'mensageria'],
+    image: null,
+    ascii: '┌─ payment ─┐\n│ PENDING   │\n│ APPROVED  │\n└───────────┘',
+    repo: 'https://github.com/OtavioMendes12/Payment-Platform',
+    demo: null,
+    featured: true,
+  },
+  {
+    id: 'jobflow',
+    name: { pt: 'JobFlow', en: 'JobFlow' },
+    description: {
+      pt: 'Plataforma distribuída de jobs: workers com pools limitados, prioridade ponderada, cota por tenant, retries com backoff e jitter, DLQ, leases com fencing token, outbox e idempotência, com métricas e traces.',
+      en: 'Distributed job platform: bounded worker pools, weighted priorities, per-tenant quotas, retries with backoff and jitter, DLQ, leases with fencing tokens, outbox and idempotency, plus metrics and traces.',
+    },
+    stack: ['Go', 'PostgreSQL', 'RabbitMQ', 'Redis', 'Docker', 'Prometheus', 'Grafana', 'OpenTelemetry'],
+    tags: ['go', 'arquitetura', 'mensageria', 'devops'],
+    image: null,
+    ascii: '┌─ jobs ────┐\n│ queued  3 │\n│ running 2 │\n└───────────┘',
+    repo: 'https://github.com/OtavioMendes12/JobFlow',
+    demo: null,
+    featured: true,
+  },
+  {
     id: 'sentinel',
     name: { pt: 'Sentinel AI · revisor de PRs', en: 'Sentinel AI · PR reviewer' },
     description: {
