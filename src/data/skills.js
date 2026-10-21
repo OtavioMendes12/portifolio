@@ -25,6 +25,7 @@ export const skillGroups = [
     title: { pt: 'Dados e mensageria', en: 'Data & messaging' },
     items: [
       { name: 'PostgreSQL', level: 4 },
+      { name: 'Redis', level: 3 },
       { name: 'RabbitMQ', level: 4 },
       { name: 'Kafka', level: 3 },
       { name: 'Amazon SQS', level: 4 },
@@ -38,7 +39,15 @@ export const skillGroups = [
       { name: 'Kubernetes / EKS', level: 3 },
       { name: 'Docker', level: 4 },
       { name: 'GitLab CI/CD', level: 4 },
+    ],
+  },
+  {
+    id: 'observability',
+    title: { pt: 'Observabilidade', en: 'Observability' },
+    items: [
       { name: 'Grafana', level: 3 },
+      { name: 'Prometheus', level: 3 },
+      { name: 'OpenTelemetry', level: 3 },
     ],
   },
   {
