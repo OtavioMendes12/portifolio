@@ -35,7 +35,11 @@
     "skip": "press any key to skip"
   },
   "header": {
-    "typing": ["Back-end Developer", "Java & Spring Boot", "Atlético fan"],
+    "typing": [
+      "Back-end Developer",
+      "Java & Spring Boot",
+      "Atlético fan"
+    ],
     "welcome": "Welcome to my Portfolio",
     "hint": "Type <help>help</help> to see the commands or <ask>ask</ask> to learn more about me.",
     "logoAlt": "Otavio's logo",
@@ -54,10 +58,47 @@
     "linkedin": "LinkedIn"
   },
   "commands": {
-    "ajuda": { "desc": "Lists the commands and keyboard shortcuts" },
-    "limpar": { "desc": "Clears the screen" },
-    "tema": { "desc": "Cycles the theme or applies one directly", "usage": "theme [--galo | --dark | --light | --matrix]" },
-    "idioma": { "desc": "Switches between Portuguese and English", "usage": "lang [pt | en]" }
+    "ajuda": {
+      "desc": "Lists the commands and keyboard shortcuts"
+    },
+    "limpar": {
+      "desc": "Clears the screen"
+    },
+    "tema": {
+      "desc": "Cycles the theme or applies one directly",
+      "usage": "theme [--galo | --dark | --light | --matrix]"
+    },
+    "idioma": {
+      "desc": "Switches between Portuguese and English",
+      "usage": "lang [pt | en]"
+    },
+    "sobre": {
+      "desc": "My journey, a few numbers and life outside the terminal"
+    },
+    "experiencias": {
+      "desc": "Timeline of my work experience"
+    },
+    "projetos": {
+      "desc": "Projects with stack and links · filter with --tag java"
+    },
+    "habilidades": {
+      "desc": "Skills · --list, --cards or --globe"
+    },
+    "curriculo": {
+      "desc": "Opens my resume as a PDF to read or download"
+    },
+    "contato": {
+      "desc": "Links and a form to get in touch"
+    },
+    "titulos": {
+      "desc": "Atlético's trophy gallery"
+    },
+    "neofetch": {
+      "desc": "System info, GaloOS edition"
+    },
+    "design": {
+      "desc": "This site's design system, with live tokens"
+    }
   },
   "help": {
     "title": "Available commands",
@@ -88,5 +129,86 @@
   "errors": {
     "generic": "Oops, something went wrong running this command. Try again in a moment.",
     "network": "I couldn't fetch the data right now. Try again in a moment."
+  },
+  "sobre": {
+    "stats": {
+      "years": "years of experience",
+      "companies": "companies",
+      "projects": "projects",
+      "languages": "languages"
+    },
+    "journey": "Journey",
+    "offline": "Outside the terminal",
+    "spoken": "Languages",
+    "more": "See also:"
+  },
+  "xp": {
+    "title": "Work experience",
+    "present": "present",
+    "current": "current",
+    "via": "via {{company}}",
+    "stack": "Technologies"
+  },
+  "projetos": {
+    "title": "Projects ({{count}})",
+    "filtered": "Projects tagged \"{{tag}}\" ({{count}})",
+    "empty": "No projects tagged \"{{tag}}\".",
+    "tagMissing": "Use --tag <name>, e.g. projects --tag java",
+    "tags": "Tags:",
+    "repo": "repository",
+    "demo": "demo",
+    "private": "private code"
+  },
+  "habilidades": {
+    "title": "Skills",
+    "modes": "Modes:",
+    "level": "level {{level}} of 5",
+    "globeLabel": "Skills cloud: {{list}}",
+    "globeHint": "drag to rotate"
+  },
+  "curriculo": {
+    "download": "download PDF",
+    "open": "open in a new tab",
+    "fallback": "English version not available yet; showing the Portuguese one.",
+    "missing": "Resume unavailable right now."
+  },
+  "contato": {
+    "title": "Let's talk",
+    "formIntro": "Or send me a message here:",
+    "notConfigured": "Email integration not configured: sending will open your email app.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "send",
+    "sending": "sending…",
+    "sent": "Message sent! I'll get back to you soon.",
+    "failed": "I couldn't send it right now. Try again or email me directly.",
+    "cooldown": "You just sent a message. Please wait a minute before sending another.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email.",
+      "message": "The message must be between {{min}} and {{max}} characters."
+    }
+  },
+  "titulos": {
+    "title": "Atlético trophy gallery · {{total}} titles",
+    "scopes": {
+      "continental": "Continental",
+      "nacional": "National",
+      "estadual": "State"
+    },
+    "more": "Full official list at"
+  },
+  "neofetch": {
+    "packages": "{{commands}} (commands), {{deps}} (npm)",
+    "cpu": "Back-end Dev (Java 21 · Spring Boot · 16 pão de queijo cores)"
+  },
+  "design": {
+    "title": "Design system",
+    "themes": "Themes",
+    "tokens": "Color tokens · {{theme}} theme",
+    "type": "Typography",
+    "spacing": "Spacing and radii",
+    "breakpoints": "Breakpoints"
   }
 }

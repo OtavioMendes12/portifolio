@@ -10,4 +10,8 @@ const siteUrlPlugin = () => ({
 
 export default defineConfig({
   plugins: [react(), siteUrlPlugin()],
+  // deps carregadas só por comandos lazy: pré-otimizadas para o dev não recarregar a página no 1º uso
+  optimizeDeps: {
+    include: ['@react-pdf-viewer/core', '@emailjs/browser', '@supabase/supabase-js'],
+  },
 });

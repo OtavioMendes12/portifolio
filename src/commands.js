@@ -27,6 +27,53 @@ export const commands = [
     component: lazy(() => import('./components/Help.jsx')),
   },
   {
+    name: 'sobre',
+    aliases: ['about', 'whoami'],
+    component: lazy(() => import('./components/About.jsx')),
+  },
+  {
+    name: 'experiencias',
+    aliases: ['experience', 'xp'],
+    component: lazy(() => import('./components/Experience.jsx')),
+  },
+  {
+    name: 'projetos',
+    aliases: ['projects'],
+    component: lazy(() => import('./components/Projects.jsx')),
+    flags: [{ name: 'tag', value: true }],
+  },
+  {
+    name: 'habilidades',
+    aliases: ['skills', 'stack'],
+    component: lazy(() => import('./components/Skills.jsx')),
+    flags: [{ name: 'lista', aliases: ['list'] }, { name: 'cards' }, { name: 'globo', aliases: ['globe'] }],
+  },
+  {
+    name: 'curriculo',
+    aliases: ['resume', 'cv'],
+    component: lazy(() => import('./components/Resume.jsx')),
+  },
+  {
+    name: 'contato',
+    aliases: ['contact'],
+    component: lazy(() => import('./components/Contact.jsx')),
+  },
+  {
+    name: 'titulos',
+    aliases: ['trophies', 'titles'],
+    component: lazy(() => import('./components/Titles.jsx')),
+  },
+  {
+    name: 'neofetch',
+    aliases: ['fetch'],
+    component: lazy(() => import('./components/Neofetch.jsx')),
+  },
+  {
+    name: 'design',
+    aliases: ['ds'],
+    component: lazy(() => import('./components/DesignSystem.jsx')),
+  },
+  {
     name: 'tema',
     aliases: ['theme'],
     component: lazy(() => import('./components/ThemeOutput.jsx')),

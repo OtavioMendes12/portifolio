@@ -184,6 +184,13 @@ a:hover {
   color: var(--accent-hover);
 }
 
+code,
+kbd,
+pre {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 button,
 input,
 textarea,

@@ -35,7 +35,11 @@
     "skip": "pressione qualquer tecla para pular"
   },
   "header": {
-    "typing": ["Desenvolvedor Back-end", "Java & Spring Boot", "Atleticano"],
+    "typing": [
+      "Desenvolvedor Back-end",
+      "Java & Spring Boot",
+      "Atleticano"
+    ],
     "welcome": "Boas-vindas ao meu Portfólio",
     "hint": "Digite <help>ajuda</help> para ver os comandos ou <ask>pergunta</ask> para saber mais sobre mim.",
     "logoAlt": "Logo do Otavio",
@@ -54,10 +58,47 @@
     "linkedin": "LinkedIn"
   },
   "commands": {
-    "ajuda": { "desc": "Lista os comandos e os atalhos de teclado" },
-    "limpar": { "desc": "Limpa a tela" },
-    "tema": { "desc": "Alterna o tema ou aplica um direto", "usage": "tema [--galo | --escuro | --claro | --matrix]" },
-    "idioma": { "desc": "Alterna entre português e inglês", "usage": "idioma [pt | en]" }
+    "ajuda": {
+      "desc": "Lista os comandos e os atalhos de teclado"
+    },
+    "limpar": {
+      "desc": "Limpa a tela"
+    },
+    "tema": {
+      "desc": "Alterna o tema ou aplica um direto",
+      "usage": "tema [--galo | --escuro | --claro | --matrix]"
+    },
+    "idioma": {
+      "desc": "Alterna entre português e inglês",
+      "usage": "idioma [pt | en]"
+    },
+    "sobre": {
+      "desc": "Minha trajetória, alguns números e o que faço fora do terminal"
+    },
+    "experiencias": {
+      "desc": "Timeline das experiências profissionais"
+    },
+    "projetos": {
+      "desc": "Projetos com stack e links · filtre com --tag java"
+    },
+    "habilidades": {
+      "desc": "Habilidades · --lista, --cards ou --globo"
+    },
+    "curriculo": {
+      "desc": "Abre o currículo em PDF para ler ou baixar"
+    },
+    "contato": {
+      "desc": "Links e um formulário para falar comigo"
+    },
+    "titulos": {
+      "desc": "A galeria de títulos do Galo"
+    },
+    "neofetch": {
+      "desc": "Informações do sistema, versão GaloOS"
+    },
+    "design": {
+      "desc": "O design system deste site, com tokens ao vivo"
+    }
   },
   "help": {
     "title": "Comandos disponíveis",
@@ -88,5 +129,86 @@
   "errors": {
     "generic": "Ops, algo deu errado ao executar este comando. Tente de novo em instantes.",
     "network": "Não consegui buscar os dados agora. Tente de novo em instantes."
+  },
+  "sobre": {
+    "stats": {
+      "years": "anos de experiência",
+      "companies": "empresas",
+      "projects": "projetos",
+      "languages": "linguagens"
+    },
+    "journey": "Trajetória",
+    "offline": "Fora do terminal",
+    "spoken": "Idiomas",
+    "more": "Veja também:"
+  },
+  "xp": {
+    "title": "Experiência profissional",
+    "present": "atual",
+    "current": "atual",
+    "via": "via {{company}}",
+    "stack": "Tecnologias"
+  },
+  "projetos": {
+    "title": "Projetos ({{count}})",
+    "filtered": "Projetos com a tag \"{{tag}}\" ({{count}})",
+    "empty": "Nenhum projeto com a tag \"{{tag}}\".",
+    "tagMissing": "Use --tag <nome>, ex.: projetos --tag java",
+    "tags": "Tags:",
+    "repo": "repositório",
+    "demo": "demo",
+    "private": "código privado"
+  },
+  "habilidades": {
+    "title": "Habilidades",
+    "modes": "Modos:",
+    "level": "nível {{level}} de 5",
+    "globeLabel": "Nuvem de habilidades: {{list}}",
+    "globeHint": "arraste para girar"
+  },
+  "curriculo": {
+    "download": "baixar PDF",
+    "open": "abrir em nova aba",
+    "fallback": "Versão em português ainda não disponível; mostrando a versão em inglês.",
+    "missing": "Currículo indisponível no momento."
+  },
+  "contato": {
+    "title": "Vamos conversar",
+    "formIntro": "Ou mande uma mensagem por aqui:",
+    "notConfigured": "Integração de e-mail não configurada: o envio vai abrir o seu app de e-mail.",
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem",
+    "send": "enviar",
+    "sending": "enviando…",
+    "sent": "Mensagem enviada! Respondo em breve.",
+    "failed": "Não consegui enviar agora. Tente de novo ou mande um e-mail direto.",
+    "cooldown": "Você acabou de enviar uma mensagem. Espere um minuto antes de mandar outra.",
+    "errors": {
+      "name": "Informe seu nome.",
+      "email": "Informe um e-mail válido.",
+      "message": "A mensagem precisa ter entre {{min}} e {{max}} caracteres."
+    }
+  },
+  "titulos": {
+    "title": "Galeria de títulos do Galo · {{total}} conquistas",
+    "scopes": {
+      "continental": "Continentais",
+      "nacional": "Nacionais",
+      "estadual": "Estaduais"
+    },
+    "more": "Lista completa e oficial em"
+  },
+  "neofetch": {
+    "packages": "{{commands}} (comandos), {{deps}} (npm)",
+    "cpu": "Dev Back-end (Java 21 · Spring Boot · 16 núcleos de pão de queijo)"
+  },
+  "design": {
+    "title": "Design system",
+    "themes": "Temas",
+    "tokens": "Tokens de cor · tema {{theme}}",
+    "type": "Tipografia",
+    "spacing": "Espaçamentos e raios",
+    "breakpoints": "Breakpoints"
   }
 }

@@ -1,0 +1,51 @@
+.titles-group {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.titles-scope {
+  margin: var(--space-2) 0 0;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.titles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: var(--space-2);
+}
+
+.trophy {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  justify-items: center;
+  text-align: center;
+}
+
+.trophy-art {
+  margin: 0;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.trophy-name {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.trophy-count {
+  color: var(--accent);
+}
+
+.trophy .badges {
+  justify-content: center;
+}
+
+.trophy-note {
+  font-size: var(--fs-xs);
+  margin: 0;
+}

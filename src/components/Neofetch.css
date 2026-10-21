@@ -1,0 +1,50 @@
+.neofetch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.neofetch-art {
+  margin: 0;
+  color: var(--accent);
+  line-height: 1.05;
+  font-size: 1.1em;
+  min-width: 10ch;
+}
+
+.neofetch-info p {
+  margin: 0;
+}
+
+.neofetch-info dl {
+  margin: 0;
+}
+
+.neofetch-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.neofetch-row dt {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.neofetch-row dd {
+  margin: 0;
+  color: var(--text);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.neofetch-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--space-3) !important;
+}
+
+.neofetch-palette span {
+  width: 2.2em;
+  height: 1.2em;
+}

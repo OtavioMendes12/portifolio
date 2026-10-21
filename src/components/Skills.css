@@ -1,0 +1,71 @@
+.skills-tree {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-3);
+}
+
+.skills-tree p {
+  margin: 0;
+}
+
+.skills-tree ul,
+.skill-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skills-tree li {
+  color: var(--text-muted);
+}
+
+.skill-card-title {
+  margin: 0 0 var(--space-2);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.skill-row:last-child {
+  border-bottom: 0;
+}
+
+.skill-name {
+  color: var(--text);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.skill-bar {
+  color: var(--accent);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.globe {
+  display: grid;
+  justify-items: center;
+}
+
+.globe canvas {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 1 / 0.75;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.globe-hint {
+  color: var(--text-dim);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
