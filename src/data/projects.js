@@ -31,6 +31,35 @@ export const projects = [
     featured: true,
   },
   {
+    id: 'sentinel',
+    name: { pt: 'Sentinel AI · revisor de PRs', en: 'Sentinel AI · PR reviewer' },
+    description: {
+      pt: 'Agente de IA que revisa pull requests no GitHub: um orquestrador roda um loop limitado em que o modelo só age por ferramentas validadas (diff, leitura de arquivos, busca), com guardrails e conteúdo do repositório tratado como não confiável.',
+      en: 'AI agent that reviews GitHub pull requests: an orchestrator runs a bounded loop where the model can only act through validated tools (diff, file reads, code search), with guardrails and repository content treated as untrusted.',
+    },
+    stack: ['Go', 'LLM', 'GitHub Actions', 'Semgrep', 'gitleaks'],
+    tags: ['go', 'ia', 'devops'],
+    image: null,
+    ascii: '┌─ PR #42 ──┐\n│ + diff    │\n│ ! finding │\n└───────────┘',
+    repo: 'https://github.com/OtavioMendes12/Sentinel-AI',
+    demo: null,
+    featured: true,
+  },
+  {
+    id: 'deployhub',
+    name: { pt: 'DeployHub', en: 'DeployHub' },
+    description: {
+      pt: 'Pequena plataforma que recebe uma aplicação containerizada e faz o deploy em Kubernetes, com back-end em Go e painel em TypeScript.',
+      en: 'Small platform that takes a containerized application and deploys it to Kubernetes, with a Go back-end and a TypeScript dashboard.',
+    },
+    stack: ['Go', 'Kubernetes', 'Docker', 'TypeScript'],
+    tags: ['go', 'kubernetes', 'devops'],
+    image: null,
+    ascii: '┌─ deploy ──┐\n│ app -> k8s│\n│ [running] │\n└───────────┘',
+    repo: 'https://github.com/OtavioMendes12/DeployHub',
+    demo: null,
+  },
+  {
     id: 'todo',
     name: { pt: 'Todo List Web', en: 'Todo List Web' },
     description: {
