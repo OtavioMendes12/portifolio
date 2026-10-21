@@ -64,6 +64,10 @@
   --window-border: var(--accent);
   --accent-soft: rgb(255 213 3 / 0.12);
   --page-pattern: repeating-linear-gradient(90deg, rgb(255 255 255 / 0.04) 0 56px, transparent 56px 112px);
+  /* Papel de parede: salve a foto em public/galo/wallpaper.jpg e troque 'none' por url('/galo/wallpaper.jpg') */
+  --page-wallpaper: none;
+  --wallpaper-shade: linear-gradient(rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.78));
+  --terminal-glass: rgb(10 10 10 / 0.9);
 }
 
 /* ---------- escuro ---------- */
@@ -88,6 +92,8 @@
   --window-border: var(--border);
   --accent-soft: rgb(0 255 157 / 0.12);
   --page-pattern: none;
+  --page-wallpaper: none;
+  --terminal-glass: var(--bg-terminal);
 }
 
 /* ---------- claro ---------- */
@@ -112,6 +118,8 @@
   --window-border: var(--border);
   --accent-soft: rgb(0 102 63 / 0.1);
   --page-pattern: none;
+  --page-wallpaper: none;
+  --terminal-glass: var(--bg-terminal);
   --shadow: 0 24px 64px rgb(0 0 0 / 0.18);
 }
 
@@ -137,6 +145,8 @@
   --window-border: var(--border);
   --accent-soft: rgb(66 201 32 / 0.12);
   --page-pattern: none;
+  --page-wallpaper: none;
+  --terminal-glass: var(--bg-terminal);
 }
 
 /* ---------- base ---------- */
@@ -155,6 +165,9 @@ body {
 body {
   background-color: var(--bg-page);
   background-image: var(--page-pattern);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-mono);
   font-size: var(--fs-base);
@@ -219,5 +232,13 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Papel de parede do tema galo: só em telas largas (no celular o terminal cobre tudo). */
+@media (min-width: 769px) {
+  [data-theme='galo'] body {
+    background-image: var(--wallpaper-shade), var(--page-wallpaper), var(--page-pattern);
+    background-size: cover, cover, auto;
   }
 }

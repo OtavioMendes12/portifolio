@@ -98,6 +98,9 @@
     },
     "design": {
       "desc": "This site's design system, with live tokens"
+    },
+    "campeonato": {
+      "desc": "Atlético's next matches · --all or --table"
     }
   },
   "help": {
@@ -210,5 +213,71 @@
     "type": "Typography",
     "spacing": "Spacing and radii",
     "breakpoints": "Breakpoints"
+  },
+  "status": {
+    "nextMatch": "Atlético's next match",
+    "live": "Atlético LIVE"
+  },
+  "campeonato": {
+    "loading": "fetching Atlético's matches…",
+    "titles": {
+      "resumo": "Atlético's next match",
+      "todos": "All scheduled matches",
+      "tabela": "Brasileirão standings"
+    },
+    "home": "HOME",
+    "away": "AWAY",
+    "live": "LIVE",
+    "brt": "Brasília time",
+    "kickoff": "Kick-off! Vamo Galo!",
+    "countdownLabel": "{{days}} days, {{hours}} hours, {{minutes}} minutes and {{seconds}} seconds to go",
+    "units": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "upcoming": "Upcoming matches",
+    "vs": "vs",
+    "at": "@",
+    "last": "Last result",
+    "resultLetter": {
+      "V": "W",
+      "E": "D",
+      "D": "L"
+    },
+    "results": {
+      "V": "win",
+      "E": "draw",
+      "D": "loss"
+    },
+    "noGames": "No matches scheduled yet.",
+    "more": "More:",
+    "error": "I couldn't fetch the matches right now.",
+    "fallback": "Check the schedule on the official website:",
+    "source": "data: ESPN · refreshed every 10 min",
+    "table": {
+      "team": "Team",
+      "points": "Pts",
+      "pointsLong": "Points",
+      "played": "P",
+      "wins": "W",
+      "ties": "D",
+      "losses": "L",
+      "gd": "GD",
+      "top": "top 4",
+      "bottom": "relegation zone"
+    }
+  },
+  "eggs": {
+    "cruzeirense": "Permission denied: this operation will never be allowed.",
+    "sudoers": "visitor is not in the sudoers file. This incident will be reported to Galo.",
+    "sudoUsage": "usage: sudo <command>",
+    "removing": "removing",
+    "justKidding": "Just kidding 😄",
+    "coffee": "Freshly brewed coffee. Let's code ☕",
+    "vamoWhat": "vamo what? Try: vamo galo",
+    "vamoGalo": "GAAALOOOO! ★ ★ ★",
+    "exit": "There is no exit. Once Galo, always Galo."
   }
 }

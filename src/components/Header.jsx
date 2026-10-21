@@ -10,6 +10,7 @@ import { profile } from '../data/profile';
 import { useReducedMotion } from '../lib/useReducedMotion';
 import OtavioLogo from './OtavioLogo';
 import CmdLink from './CmdLink';
+import StatusLines from './StatusLines';
 import './Header.css';
 
 const BANNER = [
@@ -96,7 +97,7 @@ function IntroCard() {
 }
 
 /** Tela inicial: marca, boas-vindas, status ao vivo, cartão e dica. */
-export default function Header({ statusLines = null }) {
+export default function Header() {
   const { t } = useTranslation();
   return (
     <header className="header">
@@ -104,7 +105,7 @@ export default function Header({ statusLines = null }) {
       <p className="welcome">
         <span className="welcome-sign">$</span> {t('header.welcome')}
       </p>
-      {statusLines}
+      <StatusLines />
       <IntroCard />
       <p className="hint">
         <Trans i18nKey="header.hint" components={{ help: <CmdLink />, ask: <CmdLink /> }} />

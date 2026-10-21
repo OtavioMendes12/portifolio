@@ -98,6 +98,9 @@
     },
     "design": {
       "desc": "O design system deste site, com tokens ao vivo"
+    },
+    "campeonato": {
+      "desc": "Próximos jogos do Galo · --todos ou --tabela"
     }
   },
   "help": {
@@ -210,5 +213,71 @@
     "type": "Tipografia",
     "spacing": "Espaçamentos e raios",
     "breakpoints": "Breakpoints"
+  },
+  "status": {
+    "nextMatch": "Próximo jogo do Galo",
+    "live": "Galo AO VIVO"
+  },
+  "campeonato": {
+    "loading": "buscando os jogos do Galo…",
+    "titles": {
+      "resumo": "Próximo jogo do Galo",
+      "todos": "Todos os jogos marcados",
+      "tabela": "Tabela do Brasileirão"
+    },
+    "home": "CASA",
+    "away": "FORA",
+    "live": "AO VIVO",
+    "brt": "horário de Brasília",
+    "kickoff": "Bola rolando! Vamo Galo!",
+    "countdownLabel": "Faltam {{days}} dias, {{hours}} horas, {{minutes}} minutos e {{seconds}} segundos",
+    "units": {
+      "days": "dias",
+      "hours": "horas",
+      "minutes": "min",
+      "seconds": "seg"
+    },
+    "upcoming": "Próximos jogos",
+    "vs": "vs",
+    "at": "@",
+    "last": "Último resultado",
+    "resultLetter": {
+      "V": "V",
+      "E": "E",
+      "D": "D"
+    },
+    "results": {
+      "V": "vitória",
+      "E": "empate",
+      "D": "derrota"
+    },
+    "noGames": "Nenhum jogo marcado por enquanto.",
+    "more": "Mais:",
+    "error": "Não consegui buscar os jogos agora.",
+    "fallback": "Confira a agenda no site oficial:",
+    "source": "dados: ESPN · atualizados a cada 10 min",
+    "table": {
+      "team": "Time",
+      "points": "P",
+      "pointsLong": "Pontos",
+      "played": "J",
+      "wins": "V",
+      "ties": "E",
+      "losses": "D",
+      "gd": "SG",
+      "top": "4 primeiros",
+      "bottom": "zona de rebaixamento"
+    }
+  },
+  "eggs": {
+    "cruzeirense": "Permission denied: essa operação nunca será permitida.",
+    "sudoers": "visitante não está no arquivo sudoers. Este incidente será reportado ao Galo.",
+    "sudoUsage": "uso: sudo <comando>",
+    "removing": "removendo",
+    "justKidding": "Brincadeira 😄",
+    "coffee": "Café passado na hora. Bora codar ☕",
+    "vamoWhat": "vamo o quê? Tenta: vamo galo",
+    "vamoGalo": "GAAALOOOO! ★ ★ ★",
+    "exit": "Não há saída. Uma vez Galo, sempre Galo."
   }
 }

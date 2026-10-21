@@ -1,0 +1,233 @@
+.campeonato {
+  max-width: 900px;
+}
+
+.match {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.match p {
+  margin: 0;
+}
+
+.match--next {
+  border-color: var(--accent);
+}
+
+.match-comp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.match-teams {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 1.1em;
+}
+
+.match-team {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.match-team span {
+  overflow-wrap: anywhere;
+}
+
+.match-team--away {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.match-vs {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.match-when {
+  color: var(--text);
+}
+
+.match-live {
+  color: var(--busy);
+}
+
+.crest {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.crest--empty {
+  display: inline-block;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.match-section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: var(--space-2);
+}
+
+.match--small {
+  font-size: var(--fs-sm);
+}
+
+.match-small-rival {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text);
+}
+
+.result {
+  display: inline-grid;
+  place-items: center;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: var(--radius-1);
+  color: var(--on-accent);
+}
+
+.result--V { background: var(--success); }
+.result--E { background: var(--warn); }
+.result--D { background: var(--busy); }
+
+.fixtures {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.fixtures li {
+  display: grid;
+  grid-template-columns: 11em 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-1) 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.fixtures-date {
+  color: var(--accent);
+}
+
+.fixtures-rival {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.standings th,
+.standings td {
+  padding: var(--space-1) var(--space-2);
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.standings th {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.standings th:nth-child(2),
+.standings td:nth-child(2) {
+  text-align: left;
+}
+
+.standings-team {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.standings-pts {
+  color: var(--text);
+}
+
+.standings td {
+  color: var(--text-muted);
+}
+
+.standings .zone-top td:first-child {
+  box-shadow: inset 3px 0 0 var(--success);
+}
+
+.standings .zone-bottom td:first-child {
+  box-shadow: inset 3px 0 0 var(--busy);
+}
+
+.standings tr.is-galo td {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.standings-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+}
+
+.legend {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+}
+
+.legend--top { background: var(--success); }
+.legend--bottom { background: var(--busy); }
+
+.campeonato-source {
+  font-size: var(--fs-xs);
+}
+
+@media (max-width: 600px) {
+  .match-teams {
+    font-size: 1em;
+    gap: var(--space-2);
+  }
+  .match-team {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .match-team--away {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .fixtures li {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .standings .opt {
+    display: none;
+  }
+}

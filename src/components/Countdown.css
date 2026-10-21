@@ -1,0 +1,31 @@
+.countdown {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.countdown-cell {
+  display: grid;
+  justify-items: center;
+  min-width: 4.2em;
+  padding: var(--space-2) var(--space-1);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-2);
+  background: var(--accent-soft);
+}
+
+.countdown-value {
+  color: var(--accent);
+  font-size: 1.6em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+
+.countdown-done {
+  margin: 0;
+}

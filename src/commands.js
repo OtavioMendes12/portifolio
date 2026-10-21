@@ -64,6 +64,12 @@ export const commands = [
     component: lazy(() => import('./components/Titles.jsx')),
   },
   {
+    name: 'campeonato',
+    aliases: ['galo', 'atletico', 'matches'],
+    component: lazy(() => import('./components/Campeonato.jsx')),
+    flags: [{ name: 'todos', aliases: ['all'] }, { name: 'tabela', aliases: ['table', 'standings'] }],
+  },
+  {
     name: 'neofetch',
     aliases: ['fetch'],
     component: lazy(() => import('./components/Neofetch.jsx')),
@@ -105,6 +111,11 @@ export const commands = [
     noEntry: true,
     run: ({ clear }) => clear(),
   },
+  // Easter eggs: fora do `ajuda` e do autocomplete.
+  { name: 'sudo', hidden: true, component: lazy(() => import('./components/Sudo.jsx')) },
+  { name: 'cafe', aliases: ['coffee'], hidden: true, component: lazy(() => import('./components/Cafe.jsx')) },
+  { name: 'vamo', aliases: ['vamos'], hidden: true, component: lazy(() => import('./components/VamoGalo.jsx')) },
+  { name: 'exit', aliases: ['quit', 'logout'], hidden: true, component: lazy(() => import('./components/Exit.jsx')) },
 ];
 
 export const registry = createRegistry(commands);

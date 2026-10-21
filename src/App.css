@@ -16,7 +16,9 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  background: var(--bg-terminal);
+  background: var(--terminal-glass, var(--bg-terminal));
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   color: var(--text);
   font-family: var(--font-mono);
   font-size: var(--fs-base);

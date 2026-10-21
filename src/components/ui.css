@@ -193,3 +193,22 @@
   outline: 1px solid var(--accent);
   outline-offset: 0;
 }
+
+.ascii {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.galo-shout {
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+}
+
+.star-rain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+}
