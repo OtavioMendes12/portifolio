@@ -35,7 +35,6 @@ export default function App() {
   const [searchParams] = useSearchParams();
 
   const [booting, setBooting] = useState(shouldBoot);
-  const [showHeader, setShowHeader] = useState(true);
   const [entries, setEntries] = useState([]);
   const [tabOptions, setTabOptions] = useState(null);
   const [maximized, setMaximized] = useState(false);
@@ -47,10 +46,11 @@ export default function App() {
   const deepLinked = useRef(false);
   const runRef = useRef(null);
 
+  // Limpa só o que foi digitado e as respostas; o cabeçalho (nome, status, cartão) fica.
   const clear = useCallback(() => {
     setEntries([]);
-    setShowHeader(false);
     setTabOptions(null);
+    requestAnimationFrame(() => document.querySelector('.react-terminal')?.scrollTo({ top: 0 }));
   }, []);
 
   // Modo conversa (`pergunta` sem texto): as linhas viram perguntas até `sair`.
@@ -219,7 +219,7 @@ export default function App() {
               <Boot onDone={finishBoot} />
             ) : (
               <>
-                {showHeader && <Header />}
+                <Header />
                 {entries.map((entry) => (
                   <Entry key={entry.id} entry={entry} />
                 ))}

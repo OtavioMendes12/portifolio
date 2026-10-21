@@ -64,7 +64,7 @@
       "desc": "Lista os comandos e os atalhos de teclado"
     },
     "limpar": {
-      "desc": "Limpa a tela"
+      "desc": "Limpa os comandos digitados (o cabeçalho fica)"
     },
     "tema": {
       "desc": "Alterna o tema ou aplica um direto",

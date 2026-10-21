@@ -64,7 +64,7 @@
       "desc": "Lists the commands and keyboard shortcuts"
     },
     "limpar": {
-      "desc": "Clears the screen"
+      "desc": "Clears typed commands (the header stays)"
     },
     "tema": {
       "desc": "Cycles the theme or applies one directly",
