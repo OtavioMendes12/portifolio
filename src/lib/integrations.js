@@ -35,6 +35,20 @@ export async function getRecentTracks({ limit = 10, signal } = {}) {
   }));
 }
 
+/**
+ * Música: Spotify (via /api/spotify) se configurado; senão Last.fm; senão 'not_configured'.
+ * Devolve { source: 'spotify'|'lastfm', tracks }.
+ */
+export async function getMusic({ limit = 10, signal } = {}) {
+  try {
+    const data = await getApi('/api/spotify', { ttl: 30 * 1000, signal });
+    return { source: 'spotify', tracks: data.tracks.slice(0, limit + 1) };
+  } catch (err) {
+    if (!isNotConfigured(err)) throw err;
+  }
+  return { source: 'lastfm', tracks: await getRecentTracks({ limit, signal }) };
+}
+
 /** Clima atual em BH (Open-Meteo, sem chave). */
 export async function getWeather({ signal } = {}) {
   const hit = storage.get('weather', null, 'session');

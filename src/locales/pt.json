@@ -114,7 +114,7 @@
       "desc": "Tempo de código da semana · --agora ou --cards"
     },
     "spotify": {
-      "desc": "O que estou ouvindo agora + as últimas 10 (via Last.fm)"
+      "desc": "O que estou ouvindo agora + as últimas 10 (Spotify)"
     },
     "pergunta": {
       "desc": "Pergunte qualquer coisa sobre mim (IA) · sozinho entra no modo conversa"
@@ -348,7 +348,9 @@
     "loading": "consultando o Last.fm…",
     "nowPlaying": "tocando agora",
     "silence": "Nada tocando agora.",
-    "recent": "Últimas reproduções"
+    "recent": "Últimas reproduções",
+    "profile": "meu perfil no Spotify",
+    "nowPlayingOff": "O \"tocando agora\" ainda não está conectado."
   },
   "pergunta": {
     "name": "Chat de IA",

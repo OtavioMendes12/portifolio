@@ -1,28 +1,52 @@
 import { useTranslation } from 'react-i18next';
+import { FaSpotify } from 'react-icons/fa6';
 import { useAsync } from '../lib/useAsync';
-import { getRecentTracks, isNotConfigured } from '../lib/integrations';
+import { getMusic, isNotConfigured } from '../lib/integrations';
 import { useLang } from '../data/pick';
 import { relativeTime } from '../lib/relativeTime';
 import { LASTFM_USER } from '../config/lastfm';
+import { SPOTIFY_PROFILE_URL } from '../config/spotify';
 import Spinner from './Spinner';
-import NotConfigured from './NotConfigured';
 import './Spotify.css';
+
+function ProfileLink() {
+  const { t } = useTranslation();
+  return (
+    <p className="out-muted spotify-profile">
+      <FaSpotify className="accent" aria-hidden="true" />{' '}
+      <a href={SPOTIFY_PROFILE_URL} target="_blank" rel="noreferrer">
+        {t('spotify.profile')}
+      </a>
+    </p>
+  );
+}
 
 export default function Spotify() {
   const { t } = useTranslation();
   const { lang } = useLang();
-  const state = useAsync('tracks', (signal) => getRecentTracks({ limit: 10, signal }));
+  const state = useAsync('music', (signal) => getMusic({ limit: 10, signal }));
 
   if (state.status === 'loading') return <Spinner label={t('spotify.loading')} />;
   if (state.status === 'error') {
-    return isNotConfigured(state.error) ? (
-      <NotConfigured name="Last.fm" envVar="VITE_LASTFM_API_KEY + src/config/lastfm.js" />
-    ) : (
-      <p className="out-error">✗ {t('errors.network')}</p>
+    return (
+      <div className="out spotify">
+        {isNotConfigured(state.error) ? (
+          <>
+            <p className="out-muted">
+              <span className="status-dot" aria-hidden="true" />
+              {t('spotify.nowPlayingOff')}
+            </p>
+            <p className="out-dim">{t('ui.notConfiguredHint', { env: 'SPOTIFY_REFRESH_TOKEN' })}</p>
+          </>
+        ) : (
+          <p className="out-error">✗ {t('errors.network')}</p>
+        )}
+        <ProfileLink />
+      </div>
     );
   }
 
-  const tracks = state.data;
+  const { tracks, source } = state.data;
   const playing = tracks.find((tr) => tr.nowPlaying);
   const recent = tracks.filter((tr) => !tr.nowPlaying).slice(0, 10);
 
@@ -41,9 +65,13 @@ export default function Spotify() {
               {t('spotify.nowPlaying')}
             </p>
             <p>
-              <a href={playing.url} target="_blank" rel="noreferrer">
-                {playing.name}
-              </a>
+              {playing.url ? (
+                <a href={playing.url} target="_blank" rel="noreferrer">
+                  {playing.name}
+                </a>
+              ) : (
+                playing.name
+              )}
             </p>
             <p className="out-muted">{playing.artist}</p>
           </div>
@@ -60,12 +88,15 @@ export default function Spotify() {
           </li>
         ))}
       </ol>
-      <p className="out-dim">
-        via{' '}
-        <a href={`https://www.last.fm/user/${LASTFM_USER}`} target="_blank" rel="noreferrer">
-          last.fm/user/{LASTFM_USER}
-        </a>
-      </p>
+      <ProfileLink />
+      {source === 'lastfm' && LASTFM_USER && (
+        <p className="out-dim">
+          via{' '}
+          <a href={`https://www.last.fm/user/${LASTFM_USER}`} target="_blank" rel="noreferrer">
+            last.fm/user/{LASTFM_USER}
+          </a>
+        </p>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useAsync } from '../lib/useAsync';
 import { formatMatchDate, getFutebol, sides } from '../lib/futebol';
-import { getRecentTracks, getVisits, getWakatime, getWeather, weatherText } from '../lib/integrations';
+import { getMusic, getVisits, getWakatime, getWeather, weatherText } from '../lib/integrations';
 import { useLang } from '../data/pick';
 import CmdLink from './CmdLink';
 import './StatusLines.css';
@@ -69,9 +69,9 @@ function CodingLine() {
 
 function MusicLine() {
   const { t } = useTranslation();
-  const state = useAsync('lastfm-now', (signal) => getRecentTracks({ limit: 1, signal }));
-  if (state.status !== 'success' || !state.data[0]) return null;
-  const track = state.data[0];
+  const state = useAsync('music-now', (signal) => getMusic({ limit: 1, signal }));
+  if (state.status !== 'success' || !state.data.tracks[0]) return null;
+  const track = state.data.tracks[0];
   return (
     <StatusLine tone={track.nowPlaying ? 'info' : 'muted'}>
       {track.nowPlaying ? t('status.listening') : t('status.lastListened')} ·{' '}
