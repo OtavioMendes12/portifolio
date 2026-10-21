@@ -7,7 +7,7 @@ const TEXT_TOKENS = ['text', 'text-muted', 'text-dim', 'accent', 'terminal-chrom
 const BACKGROUNDS = ['bg-terminal', 'surface'];
 
 const themes = {};
-for (const [, selector, body] of css.matchAll(/([^{}]*data-theme='(\w+)'[^{}]*)\{([^}]*)\}/g).map((m) => [m[0], m[2], m[3]])) {
+for (const [, selector, body] of css.matchAll(/\[data-theme='(\w+)'\]\s*\{([^}]*)\}/g).map((m) => [m[0], m[1], m[2]])) {
   themes[selector] = Object.fromEntries([...body.matchAll(/--([\w-]+):\s*(#[0-9a-f]{6})/gi)].map((m) => [m[1], m[2]]));
 }
 
