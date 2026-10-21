@@ -1,4 +1,4 @@
-// Fonte única dos dados pessoais (usada pelo site e, depois, pelo chat de IA).
+// Fonte única dos dados pessoais.
 export const profile = {
   name: 'Otávio Mendes',
   shortName: 'Otavio',

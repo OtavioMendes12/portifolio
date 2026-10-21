@@ -29,7 +29,7 @@ export function tokenize(input) {
  * Interpreta uma linha de comando.
  * Flags: --cards (true), --tag java ou --tag=java (valor, se a flag declara `value: true`).
  * Aliases de flag viram o nome canônico (--dark → escuro).
- * `rest` é o texto cru depois do nome do comando (para texto livre, ex.: pergunta).
+ * `rest` é o texto cru depois do nome do comando (para texto livre).
  */
 export function parseCommand(raw, find) {
   const input = (raw ?? '').trim();

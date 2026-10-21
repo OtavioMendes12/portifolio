@@ -15,8 +15,7 @@
     "copy": "copy",
     "copied": "copied!",
     "notConfigured": "integration not configured",
-    "notConfiguredHint": "Set {{env}} to enable it.",
-    "chatPrompt": "ask>"
+    "notConfiguredHint": "Set {{env}} to enable it."
   },
   "themes": {
     "galo": "Galo",
@@ -43,7 +42,7 @@
       "Atlético fan"
     ],
     "welcome": "Welcome to my Portfolio",
-    "hint": "Type <help>help</help> to see the commands or <ask>ask</ask> to learn more about me.",
+    "hint": "Type <help>help</help> to see the commands.",
     "logoAlt": "Otavio's logo",
     "shieldAlt": "Clube Atlético Mineiro crest",
     "bannerLabel": "OTAVIO"
@@ -115,9 +114,6 @@
     },
     "spotify": {
       "desc": "My Spotify playlist"
-    },
-    "pergunta": {
-      "desc": "Ask anything about me (AI) · alone it starts chat mode"
     },
     "guestbook": {
       "desc": "Guestbook: leave a message"
@@ -202,7 +198,6 @@
     "inProjects": "In projects",
     "noJobs": "Not listed in my work experience.",
     "noProjects": "No listed project uses it.",
-    "askMore": "Want details?",
     "notFound": "I couldn't find the skill \"{{name}}\"."
   },
   "curriculo": {
@@ -371,35 +366,6 @@
     "recent": "Recently played",
     "profile": "my Spotify profile",
     "nowPlayingOff": "\"Now playing\" isn't connected yet."
-  },
-  "pergunta": {
-    "name": "AI chat",
-    "who": "otavio (AI) ›",
-    "thinking": "thinking…",
-    "usage": "usage: {{cmd}} <your question>",
-    "enter": "Chat mode on: ask anything about my career, projects or Atlético.",
-    "try": "For example:",
-    "howToExit": "Type exit to go back to the terminal. Answers are AI-generated from this site's data.",
-    "exit": "Chat mode closed. Back to the terminal.",
-    "truncated": "(answer cut short; try a more specific question)",
-    "examples": {
-      "tcc": "What is your thesis about?",
-      "stack": "Which technologies do you use most on the back-end?",
-      "galo": "How long have you supported Atlético?",
-      "xp": "What did you do at Busca Passagens?"
-    },
-    "errors": {
-      "rate_limited": "Too many questions in a row. Try again in {{minutes}} min.",
-      "too_long": "Question too long (max {{max}} characters).",
-      "refusal": "I can't answer that. Ask about my career, projects or Atlético.",
-      "model_unavailable": "The AI model is unavailable for this chat. Use the contact command.",
-      "quota": "The chat has no available quota right now. Use the contact command.",
-      "access_denied": "The AI service does not have authorized access. Use the contact command.",
-      "busy": "The AI is busy right now. Try again in a moment.",
-      "network": "No connection to the server. Try again.",
-      "bad_request": "I didn't get the question. Try rephrasing it.",
-      "upstream": "I couldn't answer right now. Try again or use the contact command."
-    }
   },
   "guestbook": {
     "title": "Guestbook",

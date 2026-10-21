@@ -56,54 +56,16 @@ export default function App() {
     requestAnimationFrame(() => document.querySelector('.react-terminal')?.scrollTo({ top: 0 }));
   }, []);
 
-  // Modo conversa (`pergunta` sem texto): as linhas viram perguntas até `sair`.
-  const [chatMode, setChatMode] = useState(false);
-  const chatHistory = useRef([]);
-  const recordChat = useCallback((question, answer) => {
-    chatHistory.current = [...chatHistory.current, { role: 'user', content: question }, { role: 'assistant', content: answer }].slice(-16);
-  }, []);
-  const chat = useMemo(
-    () => ({
-      enter: () => {
-        chatHistory.current = [];
-        setChatMode(true);
-      },
-    }),
-    [],
-  );
-
   const addEntry = useCallback((entry) => {
     scrollTo.current = entry.id;
     setEntries((list) => [...list, entry].slice(-MAX_ENTRIES));
   }, []);
-
-  const runChat = useCallback(
-    (input) => {
-      const id = nextId.current++;
-      const text = input.trim();
-      if (!text) return addEntry({ id, input, chat: true });
-      if (/^(sair|exit|quit)$/i.test(text)) {
-        setChatMode(false);
-        return addEntry({ id, input, chat: true, cmdName: 'pergunta', props: { mode: 'exit' } });
-      }
-      if (/^(limpar|clear|cls)$/i.test(text)) return clear();
-      return addEntry({
-        id,
-        input,
-        chat: true,
-        cmdName: 'pergunta',
-        props: { question: text, history: chatHistory.current, chat: true },
-      });
-    },
-    [addEntry, clear],
-  );
 
   const run = useCallback(
     (raw) => {
       setTabOptions(null);
       const input = raw ?? '';
       history.push(input.trim());
-      if (chatMode) return runChat(input);
       const parsed = parseCommand(input, registry.find);
       const id = nextId.current++;
       let entry = { id, input };
@@ -114,7 +76,7 @@ export default function App() {
         let result = null;
         try {
           result =
-            parsed.cmd.run?.({ ...parsed, theme: themeApi, i18n, clear, chat, run: (c) => runRef.current?.(c) }) ?? null;
+            parsed.cmd.run?.({ ...parsed, theme: themeApi, i18n, clear, run: (c) => runRef.current?.(c) }) ?? null;
         } catch (err) {
           console.error('[terminal]', err);
           result = { error: true };
@@ -126,7 +88,7 @@ export default function App() {
 
       addEntry(entry);
     },
-    [history, themeApi, i18n, clear, chat, chatMode, runChat, addEntry],
+    [history, themeApi, i18n, clear, addEntry],
   );
 
   useEffect(() => {
@@ -202,7 +164,7 @@ export default function App() {
   }, []);
   const toggleMax = useCallback(() => setMaximized((m) => !m), []);
 
-  const ctx = useMemo(() => ({ run, type, clear, registry, recordChat }), [run, type, clear, recordChat]);
+  const ctx = useMemo(() => ({ run, type, clear, registry }), [run, type, clear]);
 
   return (
     <TerminalContext.Provider value={ctx}>
@@ -214,7 +176,7 @@ export default function App() {
       <main className={`app${maximized ? ' app--max' : ''}${booting ? ' is-booting' : ''}`}>
         <Terminal
           name={t('ui.title')}
-          prompt={chatMode ? t('ui.chatPrompt') : t('ui.prompt')}
+          prompt={t('ui.prompt')}
           height="auto"
           onInput={noop}
           TopButtonsPanel={TitleBar}

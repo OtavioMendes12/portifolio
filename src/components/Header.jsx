@@ -113,7 +113,7 @@ export default function Header() {
       <StatusLines />
       <IntroCard />
       <p className="hint">
-        <Trans i18nKey="header.hint" components={{ help: <CmdLink />, ask: <CmdLink /> }} />
+        <Trans i18nKey="header.hint" components={{ help: <CmdLink /> }} />
       </p>
     </header>
   );

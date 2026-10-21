@@ -60,6 +60,3 @@ export async function fetchJson(url, init = {}, timeoutMs = 8000) {
   if (!res.ok) throw new Error(`upstream ${res.status} ${url}`);
   return res.json();
 }
-
-export const clientIp = (request) =>
-  request.headers.get('x-real-ip') ?? request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'local';

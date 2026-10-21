@@ -15,8 +15,7 @@
     "copy": "copiar",
     "copied": "copiado!",
     "notConfigured": "integração não configurada",
-    "notConfiguredHint": "Configure {{env}} para ativar.",
-    "chatPrompt": "pergunta>"
+    "notConfiguredHint": "Configure {{env}} para ativar."
   },
   "themes": {
     "galo": "Galo",
@@ -43,7 +42,7 @@
       "Atleticano"
     ],
     "welcome": "Boas-vindas ao meu Portfólio",
-    "hint": "Digite <help>ajuda</help> para ver os comandos ou <ask>pergunta</ask> para saber mais sobre mim.",
+    "hint": "Digite <help>ajuda</help> para ver os comandos.",
     "logoAlt": "Logo do Otavio",
     "shieldAlt": "Escudo do Clube Atlético Mineiro",
     "bannerLabel": "OTAVIO"
@@ -115,9 +114,6 @@
     },
     "spotify": {
       "desc": "Minha playlist no Spotify"
-    },
-    "pergunta": {
-      "desc": "Pergunte qualquer coisa sobre mim (IA) · sozinho entra no modo conversa"
     },
     "guestbook": {
       "desc": "Livro de visitas: deixe um recado"
@@ -202,7 +198,6 @@
     "inProjects": "Em projetos",
     "noJobs": "Sem registro nas experiências listadas.",
     "noProjects": "Nenhum projeto listado com essa tecnologia.",
-    "askMore": "Quer detalhes?",
     "notFound": "Não encontrei a habilidade \"{{name}}\"."
   },
   "curriculo": {
@@ -371,35 +366,6 @@
     "recent": "Últimas reproduções",
     "profile": "meu perfil no Spotify",
     "nowPlayingOff": "O \"tocando agora\" ainda não está conectado."
-  },
-  "pergunta": {
-    "name": "Chat de IA",
-    "who": "otavio (IA) ›",
-    "thinking": "pensando…",
-    "usage": "uso: {{cmd}} <sua pergunta>",
-    "enter": "Modo conversa ligado: pergunte o que quiser sobre minha carreira, projetos ou o Galo.",
-    "try": "Por exemplo:",
-    "howToExit": "Digite sair para voltar ao terminal. As respostas são geradas por IA a partir dos dados deste site.",
-    "exit": "Modo conversa encerrado. De volta ao terminal.",
-    "truncated": "(resposta cortada; pergunte de novo de um jeito mais específico)",
-    "examples": {
-      "tcc": "Sobre o que é o seu TCC?",
-      "stack": "Quais tecnologias você mais usa no back-end?",
-      "galo": "Desde quando você torce pro Galo?",
-      "xp": "O que você fez na Busca Passagens?"
-    },
-    "errors": {
-      "rate_limited": "Muitas perguntas seguidas. Tente de novo em {{minutes}} min.",
-      "too_long": "Pergunta longa demais (máximo de {{max}} caracteres).",
-      "refusal": "Não posso responder isso. Pergunte sobre minha carreira, projetos ou o Galo.",
-      "model_unavailable": "O modelo de IA está indisponível para este chat. Use o comando contato.",
-      "quota": "O chat está sem cota disponível no momento. Use o comando contato.",
-      "access_denied": "O serviço de IA está sem acesso autorizado. Use o comando contato.",
-      "busy": "A IA está ocupada agora. Tente de novo em instantes.",
-      "network": "Sem conexão com o servidor. Tente de novo.",
-      "bad_request": "Não entendi a pergunta. Tente reformular.",
-      "upstream": "Não consegui responder agora. Tente de novo ou use o comando contato."
-    }
   },
   "guestbook": {
     "title": "Livro de visitas",

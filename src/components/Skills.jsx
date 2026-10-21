@@ -150,7 +150,6 @@ function InfoView({ query }) {
   const uses = (stack) => stack.some((x) => normalize(x).includes(key) || key.includes(normalize(x)));
   const jobs = experiences.filter((x) => uses(x.stack));
   const work = projects.filter((p) => uses(p.stack));
-  const ask = lang === 'en' ? `ask How do you use ${skill.short}?` : `pergunta Como você usa ${skill.short}?`;
 
   return (
     <div className="skill-info" style={brandStyle(skill)}>
@@ -192,9 +191,6 @@ function InfoView({ query }) {
       ) : (
         <p className="out-dim">{t('habilidades.noProjects')}</p>
       )}
-      <p className="out-muted">
-        {t('habilidades.askMore')} <CmdLink cmd={ask} />
-      </p>
     </div>
   );
 }

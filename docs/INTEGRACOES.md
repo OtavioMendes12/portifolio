@@ -6,7 +6,7 @@ Nenhuma chave fica no código. As funções em `api/` leem tudo de **variáveis 
 - **Em produção:** painel da Vercel, em *Settings → Environment Variables*.
 
 > Regra de ouro: segredo **nunca** começa com `VITE_`. O que começa com `VITE_` vai para o navegador e qualquer pessoa vê.
-> As chaves da IA, do Spotify, do GitHub e do WakaTime ficam só no servidor (funções em `api/`).
+> As chaves do Spotify, do GitHub e do WakaTime ficam só no servidor (funções em `api/`).
 
 Para ver o que já está configurado (mostra ✓/✗, nunca os valores):
 
@@ -16,19 +16,7 @@ npm run env:check
 
 ---
 
-## 1. Chat de IA (`pergunta`), OpenAI
-
-1. Acesse https://platform.openai.com/api-keys e crie uma chave para o projeto.
-2. Configure o faturamento/créditos da API no painel da OpenAI.
-3. Na Vercel, adicione `OPENAI_API_KEY` em Settings → Environment Variables (Production e, se desejado, Preview).
-4. Publique o código atualizado e faça um novo deploy para aplicar as variáveis.
-5. Opcional: configure `OPENAI_MODEL` para usar outro modelo disponível na sua conta. Padrão: `gpt-6-luna`.
-
-O chat usa a Responses API com streaming, `store: false` e limite de 2048 tokens de saída.
-O limite de uso local continua sendo 10 perguntas por IP em 10 minutos e 300 por hora por instância.
-A chave fica apenas no servidor; nunca use o prefixo `VITE_`.
-
-## 2. Spotify (`spotify`)
+## Spotify (`spotify`)
 
 O comando incorpora uma playlist pública pelo player do Spotify, sem API keys.
 O ID da playlist fica em `src/config/spotify.js`.
@@ -55,7 +43,7 @@ npm run dev                  # o dev server já lê o .env.local para as funçõ
 **Ou pela CLI** (`npm i -g vercel`, depois `vercel link` na pasta do projeto):
 
 ```bash
-vercel env add OPENAI_API_KEY production
+vercel env add GITHUB_TOKEN production
 vercel --prod   # novo deploy para valer
 ```
 
@@ -65,7 +53,7 @@ vercel --prod   # novo deploy para valer
 curl -s https://SEU-DOMINIO/api/github?view=stats   # não deve responder {"error":"not_configured"}
 ```
 
-No site, `pergunta oi` deve responder e `spotify` deve mostrar o player da playlist.
+No site, `stats` deve mostrar as estatísticas do GitHub e `spotify` deve mostrar o player da playlist.
 
 ---
 
@@ -73,7 +61,6 @@ No site, `pergunta oi` deve responder e `spotify` deve mostrar o player da playl
 
 | Variável | Onde | Para quê |
 |---|---|---|
-| `OPENAI_API_KEY` | só servidor | chat de IA (`pergunta`) |
 | `GITHUB_TOKEN` | só servidor | `stats` (gráfico de contribuições). Token *fine-grained* só de leitura |
 | `WAKATIME_API_KEY` | só servidor | `wakatime` e "Codando agora" |
 | `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` | público | `guestbook` e contador de visitas (rode `supabase/schema.sql` antes) |
